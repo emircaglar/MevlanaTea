@@ -7,7 +7,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import utils.Drivers;
-import utils.Parent;
+
 
 @CucumberOptions(
         features = {"src/test/resources/featureFiles"},
@@ -20,7 +20,7 @@ public class denemerunner extends AbstractTestNGCucumberTests {
     @Parameters({"browser", "language"})
     public void baslangic(String browser, String language) {
         Drivers.threadBrowserName.set(browser);
-        Parent.urlgit(language);
+        Drivers.threadLanguage.set(language);
     }
 
 

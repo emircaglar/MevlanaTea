@@ -74,9 +74,8 @@ public class Parent {
     }
 
     public static void urlgit(String language){
-        Drivers.threadLanguage.set(language);
         driver = Drivers.getDriver();
-        switch (Drivers.threadLanguage.get()) {
+        switch (language) {
             case "TR":
                 driver.get("https://www.mevlanacay.de/tr");
                 break;

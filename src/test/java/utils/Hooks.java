@@ -17,10 +17,10 @@ public class Hooks {
      LocalTime endTime;
      Duration duration;
 
-
     @Before
     public void before() {
         startTime = LocalTime.now();
+        Parent.urlgit(Drivers.threadLanguage.get());
     }
 
     @After
