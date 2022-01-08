@@ -15,6 +15,7 @@ import utils.Parent;
 )
 public class denemerunner extends AbstractTestNGCucumberTests {
 
+
     @BeforeClass
     @Parameters({"browser", "language"})
     public void baslangic(String browser, String language) {
