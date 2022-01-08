@@ -1,0 +1,44 @@
+package utils;
+
+import cucumber.api.Scenario;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import java.io.File;
+import java.io.IOException;
+import java.time.Duration;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
+public class Hooks {
+     LocalTime startTime;
+     LocalTime endTime;
+     Duration duration;
+
+
+    @Before
+    public void before() {
+        startTime = LocalTime.now();
+    }
+
+    @After
+    public void after(Scenario scenario) {
+        endTime = LocalTime.now();
+        duration = Duration.between(startTime, endTime);
+        System.out.println("BUra calisti");
+        if (scenario.isFailed()) {
+            TakesScreenshot takesScreenshot = (TakesScreenshot) Drivers.getDriver();
+            File screenShot = takesScreenshot.getScreenshotAs(OutputType.FILE);
+            try {
+                FileUtils.copyFile(screenShot,
+                        new File("src/test/resources/screenShots/FailedScreenShots/" + scenario.getId() + endTime.format(DateTimeFormatter.ISO_DATE_TIME) + ".png"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        ExcelUtils.logExcel("src/test/resources/logs/log.xlsx", scenario, startTime, endTime, duration, Drivers.threadBrowserName.get());
+        Drivers.quitDriver();
+    }
+}
