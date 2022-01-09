@@ -50,4 +50,86 @@ public class CheckOut {
     @FindBy(id = "place_order")
     private WebElement placeOrder;
 
+    @FindBy(xpath = "(//div[@class='alert_wrapper'])[2]")
+    private WebElement errorMessage;
+
+    @FindBy(className = "showcoupon")
+    private WebElement showCoupon;
+
+    @FindBy(id = "coupon_code")
+    private WebElement couponCodeInput;
+
+    @FindBy(xpath = "//div[contains(text(),'Der Gutschein')]")
+    private WebElement couponErrorMessage;
+
+    @FindBy(name = "apply_coupon")
+    private WebElement applyCoupon;
+
+    public WebElement getFirtsName() {
+        return firtsName;
+    }
+
+    public WebElement getLastName() {
+        return lastName;
+    }
+
+    public WebElement getAddress() {
+        return address;
+    }
+
+    public WebElement getPostCode() {
+        return postCode;
+    }
+
+    public WebElement getCity() {
+        return city;
+    }
+
+    public WebElement getPhone() {
+        return phone;
+    }
+
+    public WebElement getEmail() {
+        return email;
+    }
+
+    public WebElement getBankTransferRadio() {
+        return bankTransferRadio;
+    }
+
+    public WebElement getCreditCardRadio() {
+        return creditCardRadio;
+    }
+
+    public List<WebElement> getPaymentMethods() {
+        return paymentMethods;
+    }
+
+    public WebElement getTermsAndConditions() {
+        return termsAndConditions;
+    }
+
+    public WebElement getPlaceOrder() {
+        return placeOrder;
+    }
+
+    public WebElement getErrorMessage() {
+        return errorMessage;
+    }
+
+    public WebElement getShowCoupon() {
+        return showCoupon;
+    }
+
+    public WebElement getCouponCodeInput() {
+        return couponCodeInput;
+    }
+
+    public WebElement getCouponErrorMessage() {
+        return couponErrorMessage;
+    }
+
+    public WebElement getApplyCoupon() {
+        return applyCoupon;
+    }
 }
