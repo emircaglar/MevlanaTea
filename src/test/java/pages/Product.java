@@ -17,7 +17,7 @@ public class Product {
     private WebElement addToCart;
     @FindBy(css ="[name='quantity']")
     private WebElement quantityOfProduct;
-   @FindBy(css ="div.paypal-button-label-container")
+    @FindBy(css ="div.paypal-button-label-container")
     private WebElement payPall;
     @FindBy(xpath ="//p[@class='price']/span[@class='woocommerce-Price-amount amount']/bdi")
     private WebElement productPrice;
@@ -31,12 +31,27 @@ public class Product {
     private WebElement upperLinkedIN;
     @FindBy(xpath ="//div[@class='icons']/a[4]")
     private WebElement upperPinterest;
+
     @FindBy(css ="[href='#tab-description']")
     private WebElement productDescription;
     @FindBy(css ="[href='#tab-additional_information']")
     private WebElement productAdditionalInformation;
+
     @FindBy(css ="[href='#tab-reviews']")
     private WebElement productReviews;
+    @FindBy(xpath ="//a[.='5']")
+    private WebElement productReviews5Star;
+    @FindBy(id ="comment")
+    private WebElement productReviewsCommentText;
+    @FindBy(id ="author")
+    private WebElement productReviewsName;
+    @FindBy(id ="email")
+    private WebElement productReviewsemail;
+    @FindBy(xpath ="//input[@id='submit']")
+    private WebElement productReviewsSubmit;
+
+
+
     @FindBy(xpath ="//ul[@class='social']/li [1]")
     private WebElement footerFacebook;
     @FindBy(xpath ="//ul[@class='social']/li [2]")
