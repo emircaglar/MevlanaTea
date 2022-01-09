@@ -11,8 +11,6 @@ public class Kontakt {
         PageFactory.initElements(Drivers.getDriver(), this);
     }
 
-    //*****  EN icin  ****
-
     //@FindBy(xpath = "//span[contains(text(),'CONTACT US')]")
     @FindBy(xpath = "//a[@href='https://www.mevlanacay.de/kontakt/']/span")
     private WebElement contactUsHomeButton;
@@ -33,73 +31,33 @@ public class Kontakt {
     private WebElement kontaktSendButton;
 
     @FindBy(className = "wpcf7-response-output")  // basarili ve basarisiz mesajlar ayni locatera sahip
-    private WebElement sentMessage;
+    private WebElement sentAndFailMessage;
 
-    @FindBy(className = "wpcf7-response-output")   // basarili ve basarisiz mesajlar ayni locatera sahip
-    private WebElement failWarningMessage;
+    public WebElement getContactUsHomeButton() { return contactUsHomeButton; }
 
+    public void setContactUsHomeButton(WebElement contactUsHomeButton) { this.contactUsHomeButton = contactUsHomeButton; }
 
-    //*****  DE icin  ****
+    public WebElement getContactUsNameInput() { return contactUsNameInput; }
 
-    // @FindBy(xpath = "//span[contains(text(),'KONTAKT')]")
-    @FindBy(xpath = "//a[@href='https://www.mevlanacay.de/kontakt/']/span")
-    private WebElement kontaktHomeButton;
+    public void setContactUsNameInput(WebElement contactUsNameInput) { this.contactUsNameInput = contactUsNameInput; }
 
-    @FindBy(xpath = "(//input[@type='text'])[2]")
-    private WebElement kontaktNameInput;
+    public WebElement getContactUsEmailInput() {return contactUsEmailInput; }
 
-    @FindBy(xpath = "//input[@type='email'")
-    private WebElement kontaktEmailInput;
+    public void setContactUsEmailInput(WebElement contactUsEmailInput) { this.contactUsEmailInput = contactUsEmailInput; }
 
-    @FindBy(xpath = "(//input[@type='text'])[3]")
-    private WebElement kontaktBetreffInput;
+    public WebElement getContactUsSubjectInput() { return contactUsSubjectInput; }
 
-    @FindBy(css = "span textarea")
-    private WebElement kontaktNachrichtInput;
+    public void setContactUsSubjectInput(WebElement contactUsSubjectInput) { this.contactUsSubjectInput = contactUsSubjectInput; }
 
-    @FindBy(xpath = "(//input[@type='submit'])[2]")
-    private WebElement kontaktSendenButton;
+    public WebElement getKontaktMessageInput() { return kontaktMessageInput; }
 
-    @FindBy(className = "wpcf7-response-output")  // basarili ve basarisiz mesajlar ayni locatera sahip
-    private WebElement versandtMessage;
+    public void setKontaktMessageInput(WebElement kontaktMessageInput) { this.kontaktMessageInput = kontaktMessageInput; }
 
-    @FindBy(className = "wpcf7-response-output")   // basarili ve basarisiz mesajlar ayni locatera sahip
-    private WebElement fehlWarnungMessage;
+    public WebElement getKontaktSendButton() { return kontaktSendButton; }
 
+    public void setKontaktSendButton(WebElement kontaktSendButton) { this.kontaktSendButton = kontaktSendButton; }
 
-    //*****  TR icin  ****
+    public WebElement getSentAndFailMessage() { return sentAndFailMessage; }
 
-    //@FindBy(xpath = "//span[contains(text(),'İLETİŞİM')]")
-    @FindBy(xpath = "//a[@href='https://www.mevlanacay.de/kontakt/']/span")
-    private WebElement iletisimHomeButton;
-
-    @FindBy(xpath = "(//input[@type='text'])[2]")
-    private WebElement iletisimAdInput;
-
-    @FindBy(xpath = "//input[@type='email'")
-    private WebElement iletisimEpostaInput;
-
-    @FindBy(xpath = "(//input[@type='text'])[3]")
-    private WebElement iletisimKonuInput;
-
-    @FindBy(css = "span textarea")
-    private WebElement iletisimIletiInput;
-
-    @FindBy(xpath = "(//input[@type='submit'])[2]")
-    private WebElement iletisimGönderButton;
-
-    @FindBy(className = "wpcf7-response-output")  // basarili ve basarisiz mesajlar ayni locatera sahip
-    private WebElement gonderildiMesaji;
-
-    @FindBy(className = "wpcf7-response-output")   // basarili ve basarisiz mesajlar ayni locatera sahip
-    private WebElement basarisizUyariMesaji;
-
-
-
-
-
-
-
-
-
+    public void setSentAndFailMessage(WebElement sentAndFailMessage) { this.sentAndFailMessage = sentAndFailMessage; }
 }
