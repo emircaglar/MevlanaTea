@@ -2,8 +2,15 @@ package pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import utils.Drivers;
 
 public class Home {
+
+    public Home(){
+        PageFactory.initElements(Drivers.getDriver(),this);
+    }
+
     @FindBy(id = "mailchimp-top-bar__email")
     private WebElement Home_e_mail_input;
 
