@@ -5,6 +5,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utils.Drivers;
 
+import java.util.List;
+
 public class Products {
 
     Products() {
@@ -12,9 +14,24 @@ public class Products {
     }
 
     @FindBy(css = "li>div[class=\"desc\"]")
-    private WebElement productList;
+    private List<WebElement> productList;
 
-    public WebElement getProductList() {
+    @FindBy(css = "i[class=\"icon-basket\"]")
+    private WebElement productListBasket;
+
+    @FindBy(css = "a[class='link']")
+    private WebElement productListLink;
+
+    public List<WebElement> getProductList() {
         return productList;
     }
+
+    public WebElement getProductListBasket() {
+        return productListBasket;
+    }
+
+    public WebElement getProductListLink() {
+        return productListLink;
+    }
+
 }
