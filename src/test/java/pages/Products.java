@@ -22,5 +22,15 @@ public class Products {
     @FindBy(css = "a[class='link']")
     private List<WebElement> productListLink;
 
+    public List<WebElement> getProductList() {
+        return productList;
+    }
 
+    public List<WebElement> getProductListBasket() {
+        return productListBasket;
+    }
+
+    public List<WebElement> getProductListLink() {
+        return productListLink;
+    }
 }
