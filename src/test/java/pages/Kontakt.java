@@ -24,40 +24,42 @@ public class Kontakt {
     @FindBy(xpath = "(//input[@type='text'])[3]")
     private WebElement contactUsSubjectInput;
 
-    @FindBy(css = "span textarea")
-    private WebElement kontaktMessageInput;
+    @FindBy(css = "span>textarea")
+    private WebElement contactMessageInput;
 
     @FindBy(xpath = "(//input[@type='submit'])[2]")
-    private WebElement kontaktSendButton;
+    private WebElement contactSendButton;
 
     @FindBy(className = "wpcf7-response-output")  // basarili ve basarisiz mesajlar ayni locatera sahip
     private WebElement sentAndFailMessage;
 
-    public WebElement getContactUsHomeButton() { return contactUsHomeButton; }
 
-    public void setContactUsHomeButton(WebElement contactUsHomeButton) { this.contactUsHomeButton = contactUsHomeButton; }
+    public WebElement getContactUsHomeButton() {
+        return contactUsHomeButton;
+    }
 
-    public WebElement getContactUsNameInput() { return contactUsNameInput; }
+    public WebElement getContactUsNameInput() {
+        return contactUsNameInput;
+    }
 
-    public void setContactUsNameInput(WebElement contactUsNameInput) { this.contactUsNameInput = contactUsNameInput; }
+    public WebElement getContactUsEmailInput() {
+        return contactUsEmailInput;
+    }
 
-    public WebElement getContactUsEmailInput() {return contactUsEmailInput; }
+    public WebElement getContactUsSubjectInput() {
+        return contactUsSubjectInput;
+    }
 
-    public void setContactUsEmailInput(WebElement contactUsEmailInput) { this.contactUsEmailInput = contactUsEmailInput; }
+    public WebElement getKontaktMessageInput() {
+        return contactMessageInput;
+    }
 
-    public WebElement getContactUsSubjectInput() { return contactUsSubjectInput; }
+    public WebElement getKontaktSendButton() {
+        return contactSendButton;
+    }
 
-    public void setContactUsSubjectInput(WebElement contactUsSubjectInput) { this.contactUsSubjectInput = contactUsSubjectInput; }
+    public WebElement getSentAndFailMessage() {
+        return sentAndFailMessage;
+    }
 
-    public WebElement getKontaktMessageInput() { return kontaktMessageInput; }
-
-    public void setKontaktMessageInput(WebElement kontaktMessageInput) { this.kontaktMessageInput = kontaktMessageInput; }
-
-    public WebElement getKontaktSendButton() { return kontaktSendButton; }
-
-    public void setKontaktSendButton(WebElement kontaktSendButton) { this.kontaktSendButton = kontaktSendButton; }
-
-    public WebElement getSentAndFailMessage() { return sentAndFailMessage; }
-
-    public void setSentAndFailMessage(WebElement sentAndFailMessage) { this.sentAndFailMessage = sentAndFailMessage; }
 }
