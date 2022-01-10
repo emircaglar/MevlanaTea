@@ -17,21 +17,10 @@ public class Products {
     private List<WebElement> productList;
 
     @FindBy(css = "i[class=\"icon-basket\"]")
-    private WebElement productListBasket;
+    private List<WebElement> productListBasket;
 
     @FindBy(css = "a[class='link']")
-    private WebElement productListLink;
+    private List<WebElement> productListLink;
 
-    public List<WebElement> getProductList() {
-        return productList;
-    }
-
-    public WebElement getProductListBasket() {
-        return productListBasket;
-    }
-
-    public WebElement getProductListLink() {
-        return productListLink;
-    }
 
 }
