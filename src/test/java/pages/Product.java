@@ -39,27 +39,89 @@ public class Product {
 
     @FindBy(css ="[href='#tab-reviews']")
     private WebElement productReviews;
-    @FindBy(xpath ="//a[.='5']")
-    private WebElement productReviews5Star;
+
+    @FindBy(css =".stars>span>a")
+    private List<WebElement> productReviewsStars;
     @FindBy(id ="comment")
     private WebElement productReviewsCommentText;
     @FindBy(id ="author")
     private WebElement productReviewsName;
     @FindBy(id ="email")
     private WebElement productReviewsemail;
+
+    public WebElement getAddToCart() {
+        return addToCart;
+    }
+
+    public WebElement getQuantityOfProduct() {
+        return quantityOfProduct;
+    }
+
+    public WebElement getPayPall() {
+        return payPall;
+    }
+
+    public WebElement getProductPrice() {
+        return productPrice;
+    }
+
+    public WebElement getProductTitle() {
+        return productTitle;
+    }
+
+    public WebElement getUpperFacebook() {
+        return upperFacebook;
+    }
+
+    public WebElement getUpperTwitter() {
+        return upperTwitter;
+    }
+
+    public WebElement getUpperLinkedIN() {
+        return upperLinkedIN;
+    }
+
+    public WebElement getUpperPinterest() {
+        return upperPinterest;
+    }
+
+    public WebElement getProductDescription() {
+        return productDescription;
+    }
+
+    public WebElement getProductAdditionalInformation() {
+        return productAdditionalInformation;
+    }
+
+    public WebElement getProductReviews() {
+        return productReviews;
+    }
+
+    public List<WebElement> getProductReviewsStars() {
+        return productReviewsStars;
+    }
+
+    public WebElement getProductReviewsCommentText() {
+        return productReviewsCommentText;
+    }
+
+    public WebElement getProductReviewsName() {
+        return productReviewsName;
+    }
+
+    public WebElement getProductReviewsemail() {
+        return productReviewsemail;
+    }
+
+    public WebElement getProductReviewsSubmit() {
+        return productReviewsSubmit;
+    }
+
     @FindBy(xpath ="//input[@id='submit']")
     private WebElement productReviewsSubmit;
 
 
 
-    @FindBy(xpath ="//ul[@class='social']/li [1]")
-    private WebElement footerFacebook;
-    @FindBy(xpath ="//ul[@class='social']/li [2]")
-    private WebElement footerYoutube;
-   @FindBy(xpath ="//ul[@class='social']/li [3]")
-    private WebElement footerPinterest;
-   @FindBy(xpath ="//ul[@class='social']/li [4]")
-    private WebElement footerInstagram;
 
 
 
