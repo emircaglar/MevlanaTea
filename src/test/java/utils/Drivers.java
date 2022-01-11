@@ -12,7 +12,6 @@ public class Drivers {
     public static ThreadLocal<String> threadLanguage=new ThreadLocal<>();
 
     public static WebDriver getDriver() {
-        System.out.println("driver calisti");
         if (threadBrowserName.get() == null) {
             threadBrowserName.set("chrome");
         }
@@ -22,10 +21,12 @@ public class Drivers {
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
                     threadDriver.set(new ChromeDriver());
+                    threadDriver.get().manage().window().maximize();
                     break;
                 case "firefox":
                     WebDriverManager.firefoxdriver().setup();
                     threadDriver.set(new FirefoxDriver());
+                    threadDriver.get().manage().window().maximize();
                     break;
             }
         }

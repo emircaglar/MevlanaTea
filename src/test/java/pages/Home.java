@@ -4,8 +4,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utils.Drivers;
+import utils.Parent;
 
-public class Home {
+public class Home extends Parent {
 
     public Home(){
         PageFactory.initElements(Drivers.getDriver(),this);
@@ -17,19 +18,19 @@ public class Home {
     @FindBy(className= "mctb-button")
     private WebElement Home_e_mail_submit;
 
-    @FindBy(css= "div[class='cf1YU1 cfNq4w']")
+    @FindBy(css= "div[class='cf1YU1 cfNq4w']>button")
     private WebElement Home_cookise_accept;
 
     @FindBy(css= "ul[id='menu-ana-menu']>:nth-child(1)")
     private WebElement Home_page_Home;
 
-    @FindBy(css= "ul[id='menu-ana-menu']>:nth-child(2)")
+    @FindBy(xpath= "(//ul[@id='menu-ana-menu']//li)[2]")
     private WebElement Home_page_Product;
 
     @FindBy(css= "ul[id='menu-ana-menu']>:nth-child(3)")
     private WebElement Home_page_About_Us;
 
-    @FindBy(css= "ul[id='menu-ana-menu']>:nth-child(4)")
+    @FindBy(xpath= "//span[text()='BLOG']")
     private WebElement Home_page_Blog;
 
     @FindBy(css= "ul[id='menu-ana-menu']>:nth-child(5)")
@@ -53,6 +54,9 @@ public class Home {
     @FindBy(className= "icon-bag-fine")
     private WebElement Home_top_Cart;
 
+    @FindBy(css= "ul[id='menu-ana-menu']>:nth-child(6)")
+    private WebElement allFlags;
+
     @FindBy(id = "menu-item-22453")
     private WebElement tc_flage;
 
@@ -62,141 +66,111 @@ public class Home {
     @FindBy(id = "menu-item-22454")
     private WebElement de_flage;
 
+    @FindBy(className = "mctb-close")
+    private WebElement closeEMail;
+
+    @FindBy(className = "icon-menu-fine")
+    private WebElement hamburger;
+
+    @FindBy(id = "slide-cart")
+    private WebElement mobilCart;
+
+    @FindBy(xpath = "(//li//span[@class='menu-toggle'])[3]")
+    private WebElement toggleFlags;
+
+    @FindBy(className = "mctb-label")
+    private WebElement eMailMessage;
+
+
     public WebElement getTc_flage() {
         return tc_flage;
-    }
-
-    public void setTc_flage(WebElement tc_flage) {
-        this.tc_flage = tc_flage;
     }
 
     public WebElement getEn_flage() {
         return en_flage;
     }
 
-    public void setEn_flage(WebElement en_flage) {
-        this.en_flage = en_flage;
-    }
-
     public WebElement getDe_flage() {
         return de_flage;
-    }
-
-    public void setDe_flage(WebElement de_flage) {
-        this.de_flage = de_flage;
     }
 
     public WebElement getHome_top_Cart() {
         return Home_top_Cart;
     }
 
-    public void setHome_top_Cart(WebElement home_top_Cart) {
-        Home_top_Cart = home_top_Cart;
-    }
-
     public WebElement getHome_Facebook() {
         return Home_Facebook;
-    }
-
-    public void setHome_Facebook(WebElement home_Facebook) {
-        Home_Facebook = home_Facebook;
     }
 
     public WebElement getHome_Instagram() {
         return Home_Instagram;
     }
 
-    public void setHome_Instagram(WebElement home_Instagram) {
-        Home_Instagram = home_Instagram;
-    }
-
     public WebElement getHome_Twitter() {
         return Home_Twitter;
-    }
-
-    public void setHome_Twitter(WebElement home_Twitter) {
-        Home_Twitter = home_Twitter;
     }
 
     public WebElement getHome_Instagram_Bottom_Button() {
         return Home_Instagram_Bottom_Button;
     }
 
-    public void setHome_Instagram_Bottom_Button(WebElement home_Instagram_Bottom_Button) {
-        Home_Instagram_Bottom_Button = home_Instagram_Bottom_Button;
-    }
-
     public WebElement getHome_mail_submit_answer() {
         return Home_mail_submit_answer;
-    }
-
-    public void setHome_mail_submit_answer(WebElement home_mail_submit_answer) {
-        Home_mail_submit_answer = home_mail_submit_answer;
     }
 
     public WebElement getHome_e_mail_input() {
         return Home_e_mail_input;
     }
 
-    public void setHome_e_mail_input(WebElement home_e_mail_input) {
-        Home_e_mail_input = home_e_mail_input;
-    }
-
     public WebElement getHome_cookise_accept() {
         return Home_cookise_accept;
-    }
-
-    public void setHome_cookise_accept(WebElement home_cookise_accept) {
-        Home_cookise_accept = home_cookise_accept;
     }
 
     public WebElement getHome_page_Home() {
         return Home_page_Home;
     }
 
-    public void setHome_page_Home(WebElement home_page_Home) {
-        Home_page_Home = home_page_Home;
-    }
-
     public WebElement getHome_page_Product() {
         return Home_page_Product;
-    }
-
-    public void setHome_page_Product(WebElement home_page_Product) {
-        Home_page_Product = home_page_Product;
     }
 
     public WebElement getHome_page_About_Us() {
         return Home_page_About_Us;
     }
 
-    public void setHome_page_About_Us(WebElement home_page_About_Us) {
-        Home_page_About_Us = home_page_About_Us;
-    }
-
     public WebElement getHome_page_Blog() {
         return Home_page_Blog;
-    }
-
-    public void setHome_page_Blog(WebElement home_page_Blog) {
-        Home_page_Blog = home_page_Blog;
     }
 
     public WebElement getHome_page_Contact() {
         return Home_page_Contact;
     }
 
-    public void setHome_page_Contact(WebElement home_page_Contact) {
-        Home_page_Contact = home_page_Contact;
-    }
-
-
     public WebElement getHome_e_mail_submit() {
         return Home_e_mail_submit;
     }
 
-    public void setHome_e_mail_submit(WebElement home_e_mail_submit) {
-        Home_e_mail_submit = home_e_mail_submit;
+    public WebElement getCloseEMail() {
+        return closeEMail;
     }
 
+    public WebElement getHamburger() {
+        return hamburger;
+    }
+
+    public WebElement getMobilCart() {
+        return mobilCart;
+    }
+
+    public WebElement getAllFlags() {
+        return allFlags;
+    }
+
+    public WebElement getToggleFlags() {
+        return toggleFlags;
+    }
+
+    public WebElement geteMailMessage() {
+        return eMailMessage;
+    }
 }

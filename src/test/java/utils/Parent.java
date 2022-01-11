@@ -7,7 +7,9 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import pages.Home;
 
+import java.time.Duration;
 import java.util.List;
 
 
@@ -30,12 +32,12 @@ public class Parent {
     }
 
     public void waitUntilClickable(WebElement element) { // waits until the element to be able to be clicked
-        wait = new WebDriverWait(Drivers.getDriver(), 30);
+        wait = new WebDriverWait(Drivers.getDriver(), 15);
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
     public void waitUntilVisible(WebElement element) { // waits until the element to be able to be seen
-        wait = new WebDriverWait(Drivers.getDriver(), 30);
+        wait = new WebDriverWait(Drivers.getDriver(), 15);
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
@@ -59,7 +61,7 @@ public class Parent {
         return (int) (Math.random() * list.size());
     }
 
-    public void chooseRandomlyFromAList(List<WebElement> list) { // chooses an element from a list randomly
+    public void clickRandomlyFromAList(List<WebElement> list) { // clicks an element from a list randomly
         list.get(randomIndexForLists(list)).click();
     }
 
@@ -71,6 +73,13 @@ public class Parent {
     public void hoverOverRandomlyOnAnElement(WebElement element) { // hovers over an element
         actions = new Actions(Drivers.getDriver());
         actions.moveToElement(element).build().perform();
+    }
+
+    public void javaScriptClick(WebElement element){
+        scrollToElement(element);
+        waitUntilClickable(element);
+        JavascriptExecutor executor = (JavascriptExecutor) Drivers.getDriver();
+        executor.executeScript("arguments[0].click();", element);
     }
 
     public static void urlgit(String language){
@@ -86,5 +95,8 @@ public class Parent {
                 driver.get("https://www.mevlanacay.de/");
                 break;
         }
+        Home hm=new Home();
+        hm.waitUntilVisible(hm.getHome_cookise_accept());
+        hm.clickElement(hm.getHome_cookise_accept());
     }
 }

@@ -8,4 +8,12 @@
             <class name="runners.denemerunner"></class>
         </classes>
     </test>
+
+    <test name="test2">
+        <parameter name="browser" value="firefox"></parameter>
+        <parameter name="language" value="DE"></parameter>
+        <classes>
+            <class name="runners.denemerunner"></class>
+        </classes>
+    </test>
 </suite>

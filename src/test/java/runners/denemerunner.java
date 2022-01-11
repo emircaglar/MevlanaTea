@@ -2,7 +2,6 @@ package runners;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -14,7 +13,6 @@ import utils.Drivers;
         glue = {"stepDefinitions", "utils"}
 )
 public class denemerunner extends AbstractTestNGCucumberTests {
-
 
     @BeforeClass
     @Parameters({"browser", "language"})
