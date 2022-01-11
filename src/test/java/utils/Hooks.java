@@ -20,6 +20,10 @@ public class Hooks {
     @Before
     public void before() {
         startTime = LocalTime.now();
+        if (Drivers.threadLanguage.get()==null){
+            Drivers.threadLanguage.set("DE");
+        }
+        Drivers.getDriver().manage().deleteAllCookies();
         Parent.urlgit(Drivers.threadLanguage.get());
     }
 
@@ -27,7 +31,6 @@ public class Hooks {
     public void after(Scenario scenario) {
         endTime = LocalTime.now();
         duration = Duration.between(startTime, endTime);
-        System.out.println("BUra calisti");
         if (scenario.isFailed()) {
             TakesScreenshot takesScreenshot = (TakesScreenshot) Drivers.getDriver();
             File screenShot = takesScreenshot.getScreenshotAs(OutputType.FILE);
