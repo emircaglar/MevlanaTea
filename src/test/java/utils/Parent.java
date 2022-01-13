@@ -8,8 +8,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import pages.Home;
-
-import java.time.Duration;
 import java.util.List;
 import java.util.Set;
 
@@ -56,6 +54,19 @@ public class Parent {
 
     public void assertUrl(String urlPart) { // asserts if the url contains a String
         Assert.assertTrue(Drivers.getDriver().getCurrentUrl().contains(urlPart));
+    }
+
+    public void assertUrl(String urlPartDE, String urlPartTR, String urlPartEN){
+        switch (Drivers.threadLanguage.get()){
+            case "DE":
+                assertUrl(urlPartDE);
+                break;
+            case "TR":
+                assertUrl(urlPartTR);
+                break;
+            case "EN":
+                assertUrl(urlPartEN);
+        }
     }
 
     public int randomIndexForLists(List<WebElement> list) { // generates random index

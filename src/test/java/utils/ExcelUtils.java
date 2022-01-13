@@ -14,11 +14,11 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 public class ExcelUtils {
 
-    public static void logExcel(String path, Scenario scenario, LocalTime start, LocalTime end, Duration duration, String browserName) {
+    public static void logScenarioToExcel(Scenario scenario, LocalTime start, LocalTime end, Duration duration, String browserName) {
+        String path="src/test/resources/logs/log.xlsx";
         File file = new File(path);
         if (!file.exists()) {
             XSSFWorkbook workbook = new XSSFWorkbook();

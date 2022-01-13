@@ -13,14 +13,14 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 public class Hooks {
-     LocalTime startTime;
-     LocalTime endTime;
-     Duration duration;
+    private LocalTime startTime;
+    private LocalTime endTime;
+    private Duration duration;
 
     @Before
     public void before() {
         startTime = LocalTime.now();
-        if (Drivers.threadLanguage.get()==null){
+        if (Drivers.threadLanguage.get() == null) {
             Drivers.threadLanguage.set("DE");
         }
         Drivers.getDriver().manage().deleteAllCookies();
@@ -41,7 +41,7 @@ public class Hooks {
                 e.printStackTrace();
             }
         }
-        ExcelUtils.logExcel("src/test/resources/logs/log.xlsx", scenario, startTime, endTime, duration, Drivers.threadBrowserName.get());
+        ExcelUtils.logScenarioToExcel(scenario, startTime, endTime, duration, Drivers.threadBrowserName.get());
         Drivers.quitDriver();
     }
 }
