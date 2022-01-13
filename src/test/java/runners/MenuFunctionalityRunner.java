@@ -2,6 +2,7 @@ package runners;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
+import org.testng.SuiteRunner;
 import org.testng.annotations.*;
 import utils.Drivers;
 
@@ -22,7 +23,5 @@ public class MenuFunctionalityRunner extends AbstractTestNGCucumberTests{
         @AfterClass
         public void bitis() {
             Drivers.quitDriver();
-
-
         }
 }
