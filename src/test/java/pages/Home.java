@@ -92,6 +92,15 @@ public class Home extends Parent {
     @FindBy(css = "#menu-item-22796>ul a")
     private List<WebElement> productSubMenuList;
 
+    @FindBy(css = "input[name='EMAIL']")
+    private WebElement Home_e_mail_bottom_input;
+
+    @FindBy(css = "input[value='Registrieren']")
+    private WebElement Home_e_mail_bottom_senden;
+
+    @FindBy(className = "mc4wp-response")
+    private WebElement Home_e_mail_bottom_senden_answer;
+
     public List<WebElement> getProductSubMenuList() {
         return productSubMenuList;
     }
@@ -194,5 +203,17 @@ public class Home extends Parent {
 
     public WebElement geteMailMessage() {
         return eMailMessage;
+    }
+
+    public WebElement getHome_e_mail_bottom_input() {
+        return Home_e_mail_bottom_input;
+    }
+
+    public WebElement getHome_e_mail_bottom_senden() {
+        return Home_e_mail_bottom_senden;
+    }
+
+    public WebElement getHome_e_mail_bottom_senden_answer() {
+        return Home_e_mail_bottom_senden_answer;
     }
 }
