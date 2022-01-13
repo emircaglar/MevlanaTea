@@ -13,44 +13,46 @@ public class UberUns {
         PageFactory.initElements(Drivers.getDriver(), this);
     }
 
-    @FindBy(xpath = "//iframe[contains(@title,'Mevlana')]")
+    @FindBy(css = "div[class=\"wpb_video_wrapper\"]>iframe")
     private List<WebElement> iframeList;
 
-    @FindBy(css = "button[class='play rounded-box state-paused']")
-    private List<WebElement> buttonPlayVideoList;
+    @FindBy(css = "div[id=\"player\"]>div>div[class=\"vp-controls\"]>button")
+    private WebElement playerButton;
 
-    @FindBy(css = "div[class='focus-target']")
-    private WebElement progressBar;
+    @FindBy(css = "div.focus-target")
+    private WebElement playbackTime;
 
-    @FindBy(css = "div[class='loaded']") //video açmasak da bu elementten 1 tane var ama nerede olduğu belli değil!
-    private WebElement loadedBar;
+    @FindBy(id ="menu-item-21585")
+    private WebElement impressum;
 
-    @FindBy(css = "div[class='played']") // 18 tane element çıkıyor
-    private List<WebElement> playedBarList;
+    @FindBy(id ="menu-item-21313")
+    private WebElement faq;
 
+    @FindBy(id ="menu-item-21589")
+    private WebElement tvAds;
 
+    public WebElement getDf() {
+        return playbackTime;
+    }
 
-    /*
-    ------------------------GETTERS-------------------------------------
-     */
+    public WebElement getPlayerButton() {
+        return playerButton;
+    }
 
     public List<WebElement> getIframeList() {
         return iframeList;
     }
 
-    public List<WebElement> getButtonPlayVideoList() {
-        return buttonPlayVideoList;
+    public WebElement getImpressum() {
+        return impressum;
     }
 
-    public WebElement getProgressBar() {
-        return progressBar;
+    public WebElement getFaq() {
+        return faq;
     }
 
-    public WebElement getLoadedBar() {
-        return loadedBar;
+    public WebElement getTvAds() {
+        return tvAds;
     }
 
-    public List<WebElement> getPlayedBarList() {
-        return playedBarList;
-    }
 }

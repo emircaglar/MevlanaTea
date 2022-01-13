@@ -11,6 +11,7 @@ import pages.Home;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.Set;
 
 
 public class Parent {
@@ -98,5 +99,15 @@ public class Parent {
         Home hm=new Home();
         hm.waitUntilVisible(hm.getHome_cookise_accept());
         hm.clickElement(hm.getHome_cookise_accept());
+    }
+
+    public void switchToNewTab(){
+        String homePageID = Drivers.getDriver().getWindowHandle();
+        Set<String> windowIds = Drivers.getDriver().getWindowHandles();
+        for (String id:windowIds) {
+            if (id.equals(homePageID)) continue;
+
+            Drivers.getDriver().switchTo().window(id);
+        }
     }
 }

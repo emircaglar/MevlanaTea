@@ -6,6 +6,8 @@ import org.openqa.selenium.support.PageFactory;
 import utils.Drivers;
 import utils.Parent;
 
+import java.util.List;
+
 public class Home extends Parent {
 
     public Home(){
@@ -81,6 +83,26 @@ public class Home extends Parent {
     @FindBy(className = "mctb-label")
     private WebElement eMailMessage;
 
+    @FindBy(css = "li[id='menu-item-21588']>ul.sub-menu[style='display: block;']")
+    private WebElement about_Us_Submenu;
+
+    @FindBy(css = "li[id='menu-item-22796']>ul.sub-menu[style='display: block;']")
+    private WebElement productSubMenu;
+
+    @FindBy(css = "#menu-item-22796>ul a")
+    private List<WebElement> productSubMenuList;
+
+    public List<WebElement> getProductSubMenuList() {
+        return productSubMenuList;
+    }
+
+    public WebElement getProductSubMenu() {
+        return productSubMenu;
+    }
+
+    public WebElement getAbout_Us_Submenu() {
+        return about_Us_Submenu;
+    }
 
     public WebElement getTc_flage() {
         return tc_flage;
