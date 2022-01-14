@@ -52,6 +52,21 @@ public class Parent {
         Assert.assertTrue(element.getText().trim().contains(message));
     }
 
+    public void assertMessage(WebElement element, String messageDE, String messageTR, String messageEN) { // asserts a webelement's text contains message
+        waitUntilVisible(element);
+        switch (Drivers.threadLanguage.get()){
+            case "DE":
+                assertMessage(element,messageDE);
+                break;
+            case "TR":
+                assertMessage(element,messageTR);
+                break;
+            case "EN":
+                assertMessage(element,messageEN);
+                break;
+        }
+    }
+
     public void assertUrl(String urlPart) { // asserts if the url contains a String
         Assert.assertTrue(Drivers.getDriver().getCurrentUrl().contains(urlPart));
     }
@@ -66,6 +81,7 @@ public class Parent {
                 break;
             case "EN":
                 assertUrl(urlPartEN);
+                break;
         }
     }
 
