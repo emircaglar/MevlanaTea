@@ -177,5 +177,6 @@ public class BlogFunctionality {
         wait.until(ExpectedConditions.not(ExpectedConditions.textToBe(By.xpath("//span[@class='label']"),b.getIconHeart_actual_value_inside().getText())));
         Assert.assertNotEquals(b.getIconHeart_actual_value_inside().getText(),like_number);
     }
+    //?
 }
 
