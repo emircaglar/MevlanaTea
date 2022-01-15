@@ -4,10 +4,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utils.Drivers;
+import utils.Parent;
 
 import java.util.List;
 
-public class Product {
+public class Product extends Parent {
 
     public Product() {
         PageFactory.initElements(Drivers.getDriver(),this);
@@ -15,8 +16,13 @@ public class Product {
 
     @FindBy(css ="[name='add-to-cart']")
     private WebElement addToCart;
-    @FindBy(css ="[name='quantity']")
+    @FindBy(css="div.quantity>input")
     private WebElement quantityOfProduct;
+    @FindBy(xpath="//p[@class=\"stock in-stock\"]")
+    private WebElement stockNumber;
+    @FindBy(css="div.alert_wrapper")
+    private WebElement successMsg;
+
     @FindBy(css ="div.paypal-button-label-container")
     private WebElement payPall;
     @FindBy(xpath ="//p[@class='price']/span[@class='woocommerce-Price-amount amount']/bdi")
@@ -117,22 +123,16 @@ public class Product {
         return productReviewsSubmit;
     }
 
+    public WebElement getStockNumber() {
+        return stockNumber;
+    }
+
+    public WebElement getSuccessMsg() {
+        return successMsg;
+    }
+
     @FindBy(xpath ="//input[@id='submit']")
     private WebElement productReviewsSubmit;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }
