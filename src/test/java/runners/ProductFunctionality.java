@@ -7,12 +7,12 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import utils.Drivers;
 
-public class SubMenuProductFunctionality {
+
     @CucumberOptions(
-            features = {"src/test/resources/featureFiles/SubMenuProductFunctionality.feature"},
+            features = {"src/test/resources/featureFiles/ProductFunctionality.feature"},
             glue = {"stepDefinitions", "utils"}
     )
-    public class SubmenusOfTheAboutUsFunctionalityRunner extends AbstractTestNGCucumberTests {
+    public class ProductFunctionality extends AbstractTestNGCucumberTests {
 
         @BeforeClass
         @Parameters({"browser", "language"})
@@ -27,4 +27,4 @@ public class SubMenuProductFunctionality {
 
         }
     }
-}
+

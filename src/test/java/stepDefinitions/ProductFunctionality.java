@@ -7,7 +7,7 @@ import pages.Home;
 import pages.Product;
 import pages.Products;
 import utils.Drivers;
-public class SubMenuProductFunctionality {
+public class ProductFunctionality {
     String numberOfStock;
     int number;
     int rand;
@@ -17,7 +17,7 @@ public class SubMenuProductFunctionality {
     Home home;
     Cart cart;
 
-    public SubMenuProductFunctionality(Product product, Products products, Home home, Cart cart) {
+    public ProductFunctionality(Product product, Products products, Home home, Cart cart) {
         this.product = product;
         this.products = products;
         this.home = home;
@@ -71,7 +71,10 @@ public class SubMenuProductFunctionality {
     public void theUserShouldBeAbleToUpdateTheCart() throws InterruptedException {
         Thread.sleep(5000);
         product.waitUntilVisible(product.getSuccessMsg());
-        cart.assertMessage(product.getSuccessMsg(),"Warenkorb aktualisiert.");
+        if (!product.getQuantityOfProduct().getText().replaceAll("[^0-9]", "").equals("1")){
+            cart.assertMessage(product.getSuccessMsg(),"Warenkorb aktualisiert.");
+        }
+
     }
 
     @When("^Click on the X button$")
@@ -87,17 +90,17 @@ public class SubMenuProductFunctionality {
 
     @And("^Hover over one of the products' image randomly which is in the stocks$")
     public void hoverOverOneOfTheProductsImageRandomlyWhichIsInTheStocks() {
-        rand = products.randomIndexForLists(products.getProductList());
+       int index = products.randomIndexForLists(products.getProductList());
         Actions actions = new Actions(Drivers.getDriver());
-        actions.moveToElement(products.getProductList().get(rand)).build().perform();
+        actions.moveToElement(products.getProductList().get(index)).build().perform();
 
 
     }
 
-    @When("^Click on the link button$")
-    public void clickOnTheLinkButton() {
-        products.getProductList().get(rand).click();
-    }
+//    @When("^Click on the link button$")
+//    public void clickOnTheLinkButton() {
+//        products.getProductList().get(rand).click();
+//    }
 
     @Then("^The user should be able to see the product details$")
     public void theUserShouldBeAbleToSeeTheProductDetails() {
