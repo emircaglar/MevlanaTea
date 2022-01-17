@@ -4,23 +4,30 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utils.Drivers;
+import utils.Parent;
 
 import java.util.List;
 
-public class Cart {
+public class Cart extends Parent {
     public Cart() {
         PageFactory.initElements(Drivers.getDriver(),this);
     }
-	@FindBy(xpath="//td[@class=\"product-name\"]/a/font")
+	@FindBy(xpath="//td[@data-title=\"Produkt\"]/a")
 	private WebElement itemText;
 	@FindBy(xpath="(//span[@class=\"woocommerce-Price-amount amount\"])[1]")
 	private WebElement priceOfItem;
-	@FindBy(id="quantity_61dbdab20bfc1")
-	private WebElement quantity;
+
+	@FindBy(xpath="(//div[@class=\"woocommerce\"]/div)[2]")
+	private WebElement deletedMessage;
+
 	@FindBy(xpath="(//span[@class=\"woocommerce-Price-amount amount\"])[2]")
 	private WebElement total;
-	@FindBy(xpath="//table[@class=\"shop_table shop_table_responsive cart woocommerce-cart-form__contents\"]/tbody/tr/td[6]")
-	private List<WebElement> deleteItemlist;
+	@FindBy(css="td.product-remove")
+	private WebElement xbtn;
+	@FindBy(css="a.restore-item")
+	private WebElement ruckgangigBtn;
+	@FindBy(css="div.alert_wrapper>a")
+	private WebElement weiterEinkaufenBtn;
 	@FindBy(xpath="//button[@name=\"update_cart\"]")
 	private WebElement updateShoppingCartBtn;
 	@FindBy(xpath="//td[@data-title=\"Zwischensumme\"]")
@@ -43,16 +50,24 @@ public class Cart {
 		return priceOfItem;
 	}
 
-	public WebElement getQuantity() {
-		return quantity;
-	}
-
 	public WebElement getTotal() {
 		return total;
 	}
 
-	public List<WebElement> getDeleteItemlist() {
-		return deleteItemlist;
+	public WebElement getDeletedMessage() {
+		return deletedMessage;
+	}
+
+	public WebElement getXbtn() {
+		return xbtn;
+	}
+
+	public WebElement getRuckgangigBtn() {
+		return ruckgangigBtn;
+	}
+
+	public WebElement getWeiterEinkaufenBtn() {
+		return weiterEinkaufenBtn;
 	}
 
 	public WebElement getUpdateShoppingCartBtn() {
