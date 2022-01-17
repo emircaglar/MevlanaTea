@@ -10,60 +10,63 @@ import java.util.List;
 
 public class Home extends Parent {
 
-    public Home(){
-        PageFactory.initElements(Drivers.getDriver(),this);
+    public Home() {
+        PageFactory.initElements(Drivers.getDriver(), this);
     }
 
     @FindBy(id = "mailchimp-top-bar__email")
     private WebElement Home_e_mail_input;
 
-    @FindBy(className= "mctb-button")
+    @FindBy(css = "label[class='mctb-response-label']")
+    private WebElement Home_e_mail_bar_menu_message;
+
+    @FindBy(className = "mctb-button")
     private WebElement Home_e_mail_submit;
 
-    @FindBy(css= "div[class='cf1YU1 cfNq4w']>button")
+    @FindBy(css = "div[class='cf1YU1 cfNq4w']>button")
     private WebElement Home_cookise_accept;
 
-    @FindBy(css= "ul[id='menu-ana-menu']>:nth-child(1)")
+    @FindBy(css = "ul[id='menu-ana-menu']>:nth-child(1)")
     private WebElement Home_page_Home;
 
-    @FindBy(xpath= "(//ul[@id='menu-ana-menu']//li)[2]")
+    @FindBy(xpath = "(//ul[@id='menu-ana-menu']//li)[2]")
     private WebElement Home_page_Product;
 
-    @FindBy(css= "ul[id='menu-ana-menu']>:nth-child(3)")
+    @FindBy(css = "ul[id='menu-ana-menu']>:nth-child(3)")
     private WebElement Home_page_About_Us;
 
-    @FindBy(xpath= "//span[text()='BLOG']")
+    @FindBy(xpath = "//span[text()='BLOG']")
     private WebElement Home_page_Blog;
 
-    @FindBy(css= "ul[id='menu-ana-menu']>:nth-child(5)")
+    @FindBy(css = "ul[id='menu-ana-menu']>:nth-child(5)")
     private WebElement Home_page_Contact;
 
-    @FindBy(className= "mctb-response-label")
+    @FindBy(className = "mctb-response-label")
     private WebElement Home_mail_submit_answer;
 
-    @FindBy(xpath= "//a[text()='Facebook']")
+    @FindBy(xpath = "//a[text()='Facebook']")
     private WebElement Home_Facebook;
 
-    @FindBy(xpath= "//a[text()=' Instagram']")
+    @FindBy(xpath = "//a[text()=' Instagram']")
     private WebElement Home_Instagram;
 
-    @FindBy(xpath= "//a[text()=' Twitter']")
+    @FindBy(xpath = "//a[text()=' Twitter']")
     private WebElement Home_Twitter;
 
-    @FindBy(css= "div#sbi_load>span>a")
+    @FindBy(css = "div#sbi_load>span>a")
     private WebElement Home_Instagram_Bottom_Button;
 
-    @FindBy(className= "icon-bag-fine")
+    @FindBy(className = "icon-bag-fine")
     private WebElement Home_top_Cart;
 
-    @FindBy(css= "ul[id='menu-ana-menu']>:nth-child(6)")
+    @FindBy(css = "ul[id='menu-ana-menu']>:nth-child(6)")
     private WebElement allFlags;
 
     @FindBy(id = "menu-item-22453")
     private WebElement tc_flage;
 
     @FindBy(id = "menu-item-22455")
-    private  WebElement en_flage;
+    private WebElement en_flage;
 
     @FindBy(id = "menu-item-22454")
     private WebElement de_flage;
@@ -95,8 +98,11 @@ public class Home extends Parent {
     @FindBy(css = "input[name='EMAIL']")
     private WebElement Home_e_mail_bottom_input;
 
-    @FindBy(css = "input[value='Registrieren']")
+    @FindBy(css = "center>input")
     private WebElement Home_e_mail_bottom_senden;
+
+    @FindBy(css = "div[class='mc4wp-alert mc4wp-success']>p")
+    private WebElement Home_e_mail_bottom_successMessage;
 
     @FindBy(className = "mc4wp-response")
     private WebElement Home_e_mail_bottom_senden_answer;
@@ -216,4 +222,13 @@ public class Home extends Parent {
     public WebElement getHome_e_mail_bottom_senden_answer() {
         return Home_e_mail_bottom_senden_answer;
     }
+
+    public WebElement getHome_e_mail_bottom_successMessage() {
+        return Home_e_mail_bottom_successMessage;
+    }
+
+    public WebElement getHome_e_mail_bar_menu_message() {
+        return Home_e_mail_bar_menu_message;
+    }
+
 }
