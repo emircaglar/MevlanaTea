@@ -31,34 +31,6 @@ Feature:In Blog page
     And Click on the Next Page button
     Then The user should be able to see the articles on the next page
 
-  Scenario:Share page on face
-    When Click on the Blog button
-    Then The user should be able to see the Blog Page
-    And Click on one of the articles randomly
-    Then The user should be able to see the article
-    And Click on the share on Facebook button
-    Then The user should be able to share the article on Facebook
 
-  Scenario:Share page on  twitter
-    When Click on the Blog button
-    Then The user should be able to see the Blog Page
-    And Click on one of the articles randomly
-    Then The user should be able to see the article
-    And Click on the share on Twitter button
-    Then The user should be able to share the article on Twitter
 
-  Scenario:Share page on  pinteres
-    When Click on the Blog button
-    Then The user should be able to see the Blog Page
-    And Click on one of the articles randomly
-    Then The user should be able to see the article
-    And Click on the share on Pinterest button
-    Then The user should be able to share the article on Pinterest
 
-  Scenario:Share page on  pinteres
-    When Click on the Blog button
-    Then The user should be able to see the Blog Page
-    And Click on one of the articles randomly
-    Then The user should be able to see the article
-    And Click on the share on Linked In button
-    Then The user should be able to share the article on Linked In
