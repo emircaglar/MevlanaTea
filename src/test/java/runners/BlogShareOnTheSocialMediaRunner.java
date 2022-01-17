@@ -8,12 +8,12 @@ import utils.Drivers;
 
 
 @CucumberOptions(
-        features = {"src/test/resources/featureFiles/BlogLikeFunctionality.feature"},
+        features = {"src/test/resources/featureFiles/BlogShareOnTheSocialMedia.feature"},
         glue = {"stepDefinitions", "utils"}
 
 )
 
-public class BlogLikeFunctionalityRunner extends AbstractTestNGCucumberTests {
+public class BlogShareOnTheSocialMediaRunner extends AbstractTestNGCucumberTests {
     @BeforeClass
     @Parameters({"browser", "language"})
     public void baslangic(String browser, String language) {

@@ -1,6 +1,7 @@
 package stepDefinitions;
 
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import org.openqa.selenium.By;
@@ -30,14 +31,14 @@ public class BlogFunctionality {
 
     @And("^Click on one of the articles randomly$")
     public void clickOnOneOfTheArticlesRandomly() {
-        random_integer_value =b.randomIndexForLists(b.getArticles_href());
-        random_href =b.getArticles_href().get(random_integer_value).getAttribute("href");
+        random_integer_value = b.randomIndexForLists(b.getArticles_href());
+        random_href = b.getArticles_href().get(random_integer_value).getAttribute("href");
         b.clickElement(b.getArticles_href().get(random_integer_value));
     }
 
     @And("^Hover over one of the images randomly$")
     public void hoverOverOneOfTheImagesRandomly() {
-        random_integer_value =b.randomIndexForLists(b.getImage());
+        random_integer_value = b.randomIndexForLists(b.getImage());
         b.hoverOverRandomlyOnAnElement(b.getImage().get(random_integer_value));
     }
 
@@ -49,8 +50,8 @@ public class BlogFunctionality {
 
     @And("^Click on one of the Mehr erfahren buttons randomly$")
     public void clickOnOneOfTheMehrErfahrenButtonsRandomly() {
-        random_integer_value =b.randomIndexForLists(b.getArticles_href());
-        random_href =b.getReadMore_2().get(random_integer_value).getAttribute("href");
+        random_integer_value = b.randomIndexForLists(b.getArticles_href());
+        random_href = b.getReadMore_2().get(random_integer_value).getAttribute("href");
         b.clickElement(b.getReadMore_2().get(random_integer_value));
     }
 
@@ -87,7 +88,9 @@ public class BlogFunctionality {
     }
 
     @And("^Click on the share on Pinterest button$")
-    public void clickOnTheShareOnPinterestButton() { b.clickElement(b.getShare_pinteres()); }
+    public void clickOnTheShareOnPinterestButton() {
+        b.clickElement(b.getShare_pinteres());
+    }
 
     @Then("^The user should be able to share the article on Pinterest$")
     public void theUserShouldBeAbleToShareTheArticleOnPinterest() {
@@ -121,15 +124,15 @@ public class BlogFunctionality {
         if (Drivers.threadLanguage.get().equals("DE")) {
             search_value = "Tee";
             b.sendKeys(b.getSearch_blog_page(), search_value);
-            b.options_actions(b.getSearch_blog_page(),Drivers.getDriver());}
-        else if (Drivers.threadLanguage.get().equals("EN")) {
+            b.options_actions(b.getSearch_blog_page(), Drivers.getDriver());
+        } else if (Drivers.threadLanguage.get().equals("EN")) {
             search_value = "Tea";
             b.sendKeys(b.getSearch_blog_page(), search_value);
-            b.options_actions(b.getSearch_blog_page(),Drivers.getDriver());
+            b.options_actions(b.getSearch_blog_page(), Drivers.getDriver());
         } else {
             search_value = "Cay";
             b.sendKeys(b.getSearch_blog_page(), search_value);
-            b.options_actions(b.getSearch_blog_page(),Drivers.getDriver());
+            b.options_actions(b.getSearch_blog_page(), Drivers.getDriver());
         }
     }
 
@@ -146,8 +149,8 @@ public class BlogFunctionality {
 
     @And("^Click on one of the Like buttons randomly$")
     public void clickOnOneOfTheLikeButtonsRandomly() {
-        random_integer_value=b.randomIndexForLists(b.getIconHeart());
-        like_number =b.getIconHeart_actual_value().get(random_integer_value).getText();
+        random_integer_value = b.randomIndexForLists(b.getIconHeart());
+        like_number = b.getIconHeart_actual_value().get(random_integer_value).getText();
         b.clickElement(b.getIconHeart_actual_value().get(random_integer_value));
     }
 
@@ -158,15 +161,16 @@ public class BlogFunctionality {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-       /* wait = new WebDriverWait(Drivers.getDriver(), 70);
+        /*   wait = new WebDriverWait(Drivers.getDriver(), 50);
         wait.until(ExpectedConditions.not(ExpectedConditions.textToBe(By.xpath("//a//span[@class='label']"),b.getIconHeart_actual_value().get(random_integer_value).getText())));
-       */ Assert.assertNotEquals(b.getIconHeart_actual_value().get(random_integer_value).getText(),like_number);
+        */
+        Assert.assertNotEquals(b.getIconHeart_actual_value().get(random_integer_value).getText(), like_number);
 
     }
 
     @And("^Click on one of the Like buttons in the acticel page$")
     public void clickOnOneOfTheLikeButtonsInTheActicelPage() {
-        like_number =b.getIconHeart_actual_value_inside().getText();
+        like_number = b.getIconHeart_actual_value_inside().getText();
         b.javaScriptClick(b.getIconHeart_actual_value_inside());
 
     }
@@ -174,9 +178,33 @@ public class BlogFunctionality {
     @Then("^The number of likes should be changed in the artikel page$")
     public void theNumberOfLikesShouldBeChangedInTheArtikelPage() {
         wait = new WebDriverWait(Drivers.getDriver(), 50);
-        wait.until(ExpectedConditions.not(ExpectedConditions.textToBe(By.xpath("//span[@class='label']"),b.getIconHeart_actual_value_inside().getText())));
-        Assert.assertNotEquals(b.getIconHeart_actual_value_inside().getText(),like_number);
+        wait.until(ExpectedConditions.not(ExpectedConditions.textToBe((By.xpath("//span[@class='label']")), b.getIconHeart_actual_value_inside().getText())));
+        Assert.assertNotEquals(b.getIconHeart_actual_value_inside().getText(), like_number);
     }
-    //?
+
+
+    @And("^Click on the share on \"([^\"]*)\" button$")
+    public void clickOnTheShareOnButton(String socialMedia) {
+        switch (socialMedia) {
+            case "Facebook":
+               b.clickElement(b.getShare_facebook());
+                break;
+            case "Twitter":
+               b.clickElement(b.getIcon_twitter());
+                break;
+            case "Linked":
+               b.clickElement(b.getIcon_linkedin());
+                break;
+            case "Pinterest":
+               b.clickElement(b.getShare_pinteres());
+                break;
+        }
+    }
+
+    @Then("^The user should be able to share the article on the \"([^\"]*)\"$")
+    public void theUserShouldBeAbleToShareTheArticleOnThe(String newPage) {
+        b.switchToNewTab();
+        b.assertUrl(newPage);
+    }
 }
 

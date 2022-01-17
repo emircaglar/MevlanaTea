@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test name="Blog Functionality in German">
+        <parameter name="browser" value="chrome"></parameter>
+        <parameter name="language" value="TR"></parameter>
+        <classes>
+            <class name="runners.BlogShareOnTheSocialMediaRunner"></class>
+        </classes>
+    </test>
+
+</suite>
