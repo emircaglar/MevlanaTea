@@ -1,4 +1,4 @@
-Feature: sub Menu Product Functionality
+Feature:Product Functionality
 
   Scenario: TC_0802
     Given Click on the Produkte button
