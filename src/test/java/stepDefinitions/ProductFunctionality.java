@@ -90,9 +90,9 @@ public class ProductFunctionality {
 
     @And("^Hover over one of the products' image randomly which is in the stocks$")
     public void hoverOverOneOfTheProductsImageRandomlyWhichIsInTheStocks() {
-       int index = products.randomIndexForLists(products.getProductList());
+       rand = products.randomIndexForLists(products.getProductList());
         Actions actions = new Actions(Drivers.getDriver());
-        actions.moveToElement(products.getProductList().get(index)).build().perform();
+        actions.moveToElement(products.getProductList().get(rand)).build().perform();
 
 
     }
