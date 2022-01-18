@@ -8,42 +8,34 @@ public class SocialMediaButtonFunctionality {
     public SocialMediaButtonFunctionality (Home hm) {
         this.hm = hm;
     }
-    @Given("^Click on the Facebook button$")
-    public void click_on_the_Facebook_button()  {
-        hm.getHome_Facebook().click();
+
+    @Given("^Click on the \"([^\"]*)\" button$")
+    public void clickOnTheButton(String name) {
+        switch (name) {
+            case "Facebook":
+                hm.getHome_Facebook().click();
+                break;
+            case "Twitter":
+                hm.getHome_Twitter().click();
+                break;
+            case "Instagram":
+                hm.getHome_Instagram().click();
+                break;
+            case "InstagramBottom":
+                hm.getHome_Instagram_Bottom_Button().click();
+                break;
+        }
     }
 
-    @Then("^The user should be able to see the Facebook page of the company$")
-    public void the_user_should_be_able_to_see_the_Facebook_page_of_the_company() {
+    @Then("^The user should be able to see the \"([^\"]*)\" page of the company$")
+    public void theUserShouldBeAbleToSeeThePageOfTheCompany(String socialMediaPageUrl)  {
         hm.switchToNewTab();
-        hm.assertUrl("facebook");
-    }
+        hm.assertUrl(socialMediaPageUrl);
 
-    @Given("^Click on the Instagram button$")
-    public void click_on_the_Instagram_button() {
-        hm.getHome_Instagram().click();
     }
-
-    @Then("^The user should be able to see the Instagram page of the company$")
-    public void the_user_should_be_able_to_see_the_Instagram_page_of_the_company() {
-        hm.switchToNewTab();
-        hm.assertUrl("instagram");
-    }
-
-    @Given("^Click on the Twitter button$")
-    public void click_on_the_Twitter_button() {
-        hm.getHome_Twitter().click();
-    }
-
-    @Then("^The user should be able to see the Twitter page of the company$")
-    public void the_user_should_be_able_to_see_the_Twitter_page_of_the_company() {
-        hm.switchToNewTab();
-        hm.assertUrl("twitter");
-    }
-
-    @Given("^Click on the Instagram Bottom button$")
-    public void click_on_the_Instagram_Bottom_button() {
-        hm.getHome_Instagram_Bottom_Button().click();
-    }
-
 }
+
+
+
+
+

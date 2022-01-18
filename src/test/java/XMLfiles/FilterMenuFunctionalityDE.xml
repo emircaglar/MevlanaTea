@@ -2,11 +2,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
 
-    <test name="Watch to TV Ads functionality in German">
+    <test name="Filter Menu Functionality in German">
         <parameter name="browser" value="chrome"></parameter>
         <parameter name="language" value="DE"></parameter>
         <classes>
-            <class name="runners.WatchToTVAdsFunctionalityRunner"></class>
+            <class name="runners.FilterMenuFunctionalityGermanyRunner"></class>
         </classes>
     </test>
 

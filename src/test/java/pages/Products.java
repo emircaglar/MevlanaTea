@@ -5,12 +5,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utils.Drivers;
 import utils.Parent;
-
 import java.util.List;
 
 public class Products extends Parent {
 
-    Products() {
+   public Products() {
         PageFactory.initElements(Drivers.getDriver(),this);
     }
 
@@ -27,6 +26,27 @@ public class Products extends Parent {
 
     @FindBy(css = "a[class='link']")
     private List<WebElement> productListLink;
+
+    @FindBy(css = "select[name=\"orderby\"]")
+    private WebElement filterMenu;
+
+    @FindBy(css = "div[class=\"shop-filters\"]>form")
+    private WebElement filterBtn;
+
+    @FindBy(css = "#menu-item-22796>ul.sub-menu>li:last-child")
+    private WebElement teezubehörButton;
+
+    public WebElement getFilterBtn() {
+        return filterBtn;
+    }
+
+    public WebElement getTeezubehörButton() {
+        return teezubehörButton;
+    }
+
+    public WebElement getFilterMenu() {
+        return filterMenu;
+    }
 
     public List<WebElement> getProductList() {
         return productList;

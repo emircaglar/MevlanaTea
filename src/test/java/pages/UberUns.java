@@ -4,10 +4,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utils.Drivers;
+import utils.Parent;
 
 import java.util.List;
 
-public class UberUns {
+public class UberUns extends Parent{
 
     public UberUns() {
         PageFactory.initElements(Drivers.getDriver(), this);
@@ -31,7 +32,7 @@ public class UberUns {
     @FindBy(id ="menu-item-21589")
     private WebElement tvAds;
 
-    public WebElement getDf() {
+    public WebElement getPlaybackTime() {
         return playbackTime;
     }
 

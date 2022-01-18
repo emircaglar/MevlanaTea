@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
 
-    <test name="Menu Functionality in German">
+    <test name="Social Media Button Functionality in German">
         <parameter name="browser" value="chrome"></parameter>
         <parameter name="language" value="DE"></parameter>
         <classes>
@@ -10,7 +10,7 @@
         </classes>
     </test>
 
-    <test name="Menu Functionality in English">
+    <test name="Social Media Button Functionality in English">
         <parameter name="browser" value="chrome"></parameter>
         <parameter name="language" value="EN"></parameter>
         <classes>
@@ -18,7 +18,7 @@
         </classes>
     </test>
 
-    <test name="Menu Functionality in Turkish">
+    <test name="Social Media Button Functionality in Turkish">
         <parameter name="browser" value="chrome"></parameter>
         <parameter name="language" value="TR"></parameter>
         <classes>

@@ -4,7 +4,6 @@ import cucumber.api.java.en.*;
 import org.testng.Assert;
 import pages.Home;
 import pages.UberUns;
-import utils.Drivers;
 
 public class SubmenusOfTheAboutUsFunctionality {
 
@@ -17,7 +16,7 @@ public class SubmenusOfTheAboutUsFunctionality {
 
     @Given("^Hover over the About Us button$")
     public void hover_over_the_About_Us_button() {
-        hm.hoverOverRandomlyOnAnElement(hm.getHome_page_About_Us());
+        uberUns.hoverOverRandomlyOnAnElement(hm.getHome_page_About_Us());
     }
 
     @Then("^The user should be able to see the sub menus of the About Us page$")
@@ -33,16 +32,7 @@ public class SubmenusOfTheAboutUsFunctionality {
 
     @Then("^The user should be able see the TV Ads page\\.$")
     public void theUserShouldBeAbleSeeTheTVAdsPage() {
-
-        switch (Drivers.threadLanguage.get())
-        {
-            case "DE":hm.assertUrl("tv-spots");
-                break;
-            case "TR":hm.assertUrl("tv-reklamlari");
-                break;
-            case "EN": hm.assertUrl("tv-ads");
-                break;
-        }
+        uberUns.assertUrl("tv-spots","tv-reklamlari","tv-ads");
     }
 
     @And("^Click on the Impressum button$")
@@ -52,16 +42,7 @@ public class SubmenusOfTheAboutUsFunctionality {
 
     @Then("^The user should be able to see the Impressum page$")
     public void theUserShouldBeAbleToSeeTheImpressumPage() {
-
-        switch (Drivers.threadLanguage.get())
-        {
-            case "DE":
-            case "EN":
-                hm.assertUrl("impressum");
-            break;
-            case "TR":hm.assertUrl("kunye");
-            break;
-        }
+        uberUns.assertUrl("impressum","kunye","impressum");
     }
 
     @And("^Click on the FAQ button$")
@@ -71,16 +52,6 @@ public class SubmenusOfTheAboutUsFunctionality {
 
     @Then("^The user should be able to see the FAQ page$")
     public void theUserShouldBeAbleToSeeTheFAQPage() {
-        switch (Drivers.threadLanguage.get())
-        {
-            case "DE":hm.assertUrl("haufig-gestellte-fragen");
-                break;
-            case "TR":hm.assertUrl("sss");
-                break;
-            case "EN": hm.assertUrl("faq");
-                break;
-        }
+        uberUns.assertUrl("haufig-gestellte-fragen","sss","faq");
     }
-
-
 }
