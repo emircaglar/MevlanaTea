@@ -5,7 +5,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utils.Drivers;
 import utils.Parent;
-
 import java.util.List;
 
 public class Home extends Parent {
@@ -107,6 +106,12 @@ public class Home extends Parent {
     @FindBy(className = "mc4wp-response")
     private WebElement Home_e_mail_bottom_senden_answer;
 
+    @FindBy(css = ".widget_mfn_menu ul li a")
+    private List<WebElement> footerMenuList;
+
+    public List<WebElement> getFooterMenuList() {
+        return footerMenuList;
+    }
     public List<WebElement> getProductSubMenuList() {
         return productSubMenuList;
     }
