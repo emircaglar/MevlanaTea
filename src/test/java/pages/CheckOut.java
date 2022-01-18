@@ -1,21 +1,21 @@
 package pages;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utils.Drivers;
+import utils.Parent;
 
 import java.util.List;
 
-public class CheckOut {
+public class CheckOut extends Parent {
 
     public CheckOut() {
         PageFactory.initElements(Drivers.getDriver(),this);
     }
 
     @FindBy(id = "billing_first_name")
-    private WebElement firtsName;
+    private WebElement firstName;
 
     @FindBy(id = "billing_last_name")
     private WebElement lastName;
@@ -65,8 +65,8 @@ public class CheckOut {
     @FindBy(name = "apply_coupon")
     private WebElement applyCoupon;
 
-    public WebElement getFirtsName() {
-        return firtsName;
+    public WebElement getFirstName() {
+        return firstName;
     }
 
     public WebElement getLastName() {

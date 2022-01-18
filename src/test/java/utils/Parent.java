@@ -19,6 +19,12 @@ public class Parent {
     Actions actions;
     static WebDriver driver;
 
+    public Parent() {
+        wait = new WebDriverWait(Drivers.getDriver(), 15);
+        js = (JavascriptExecutor) Drivers.getDriver();
+        actions = new Actions(Drivers.getDriver());
+    }
+
     public void clickElement(WebElement element) { // scrolls to element and click on it
         scrollToElement(element);
         waitUntilClickable(element);
@@ -26,17 +32,14 @@ public class Parent {
     }
 
     public void scrollToElement(WebElement element) { // scrolls to element
-        js = (JavascriptExecutor) Drivers.getDriver();
         js.executeScript("arguments[0].scrollIntoView(false);", element);
     }
 
     public void waitUntilClickable(WebElement element) { // waits until the element to be able to be clicked
-        wait = new WebDriverWait(Drivers.getDriver(), 15);
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
     public void waitUntilVisible(WebElement element) { // waits until the element to be able to be seen
-        wait = new WebDriverWait(Drivers.getDriver(), 15);
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
@@ -94,12 +97,10 @@ public class Parent {
     }
 
     public void hoverOverRandomlyOnAnElement(List<WebElement> list) { // hovers over an element of a list randomly
-        actions = new Actions(Drivers.getDriver());
         actions.moveToElement(list.get(randomIndexForLists(list))).build().perform();
     }
 
     public void hoverOverRandomlyOnAnElement(WebElement element) { // hovers over an element
-        actions = new Actions(Drivers.getDriver());
         actions.moveToElement(element).build().perform();
     }
 
@@ -139,8 +140,6 @@ public class Parent {
     }
 
     public void options_actions(WebElement element, WebDriver driver){
-        Actions actions= new Actions(driver);
         actions.moveToElement(element).sendKeys(Keys.ENTER).build().perform();
-
     }
 }
