@@ -12,7 +12,6 @@ public class Kontakt extends Parent {
         PageFactory.initElements(Drivers.getDriver(), this);
     }
 
-    //@FindBy(xpath = "//span[contains(text(),'CONTACT US')]")
     @FindBy(xpath = "//a[@href='https://www.mevlanacay.de/kontakt/']/span")
     private WebElement contactUsHomeButton;
 
@@ -31,7 +30,7 @@ public class Kontakt extends Parent {
     @FindBy(xpath = "(//input[@type='submit'])[2]")
     private WebElement contactSendButton;
 
-    @FindBy(css = ".wpcf7-response-output")  // basarili ve basarisiz mesajlar ayni locatera sahip
+    @FindBy(css = ".wpcf7-response-output")
     private WebElement sentAndFailMessage;
 
 
