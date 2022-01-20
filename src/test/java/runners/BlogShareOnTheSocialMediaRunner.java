@@ -10,7 +10,6 @@ import utils.Drivers;
 @CucumberOptions(
         features = {"src/test/resources/featureFiles/BlogShareOnTheSocialMedia.feature"},
         glue = {"stepDefinitions", "utils"}
-
 )
 
 public class BlogShareOnTheSocialMediaRunner extends AbstractTestNGCucumberTests {
