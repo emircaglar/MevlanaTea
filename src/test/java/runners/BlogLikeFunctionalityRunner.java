@@ -10,7 +10,6 @@ import utils.Drivers;
 @CucumberOptions(
         features = {"src/test/resources/featureFiles/BlogLikeFunctionality.feature"},
         glue = {"stepDefinitions", "utils"}
-
 )
 
 public class BlogLikeFunctionalityRunner extends AbstractTestNGCucumberTests {
