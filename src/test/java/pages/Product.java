@@ -23,7 +23,7 @@ public class Product extends Parent {
     @FindBy(css="div.alert_wrapper")
     private WebElement successMsg;
 
-    @FindBy(css ="div.paypal-button-label-container")
+    @FindBy(id ="paypal-animation-container")
     private WebElement payPall;
     @FindBy(xpath ="//p[@class='price']/span[@class='woocommerce-Price-amount amount']/bdi")
     private WebElement productPrice;
