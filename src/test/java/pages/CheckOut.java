@@ -41,10 +41,10 @@ public class CheckOut extends Parent {
     @FindBy(id = "payment_method_paypal_plus")
     private WebElement creditCardRadio;
 
-    @FindBy(className = "nameRow")
+    @FindBy(css = "[class= 'nameRow']")
     private List<WebElement> paymentMethods;
 
-    @FindBy(id = "nameRow")
+    @FindBy(id = "terms")
     private WebElement termsAndConditions;
 
     @FindBy(id = "place_order")
