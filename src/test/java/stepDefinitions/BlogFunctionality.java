@@ -22,6 +22,8 @@ public class BlogFunctionality {
 
     public BlogFunctionality(Blog b) {
         this.b = b;
+        wait = new WebDriverWait(Drivers.getDriver(), 15);
+
     }
 
     @Then("^The user should be able to see the article$")
@@ -70,21 +72,9 @@ public class BlogFunctionality {
         b.clickElement(b.getShare_facebook());
     }
 
-    @Then("^The user should be able to share the article on Facebook$")
-    public void theUserShouldBeAbleToShareTheArticleOnFacebook() {
-        b.switchToNewTab();
-        b.assertUrl("facebook");
-    }
-
     @And("^Click on the share on Twitter button$")
     public void clickOnTheShareOnTwitterButton() {
         b.clickElement(b.getIcon_twitter());
-    }
-
-    @Then("^The user should be able to share the article on Twitter$")
-    public void theUserShouldBeAbleToShareTheArticleOnTwitter() {
-        b.switchToNewTab();
-        b.assertUrl("twitter");
     }
 
     @And("^Click on the share on Pinterest button$")
@@ -92,21 +82,9 @@ public class BlogFunctionality {
         b.clickElement(b.getShare_pinteres());
     }
 
-    @Then("^The user should be able to share the article on Pinterest$")
-    public void theUserShouldBeAbleToShareTheArticleOnPinterest() {
-        b.switchToNewTab();
-        b.assertUrl("pinteres");
-    }
-
     @And("^Click on the share on Linked In button$")
     public void clickOnTheShareOnLinkedInButton() {
         b.clickElement(b.getIcon_linkedin());
-    }
-
-    @Then("^The user should be able to share the article on Linked In$")
-    public void theUserShouldBeAbleToShareTheArticleOnLinkedIn() {
-        b.switchToNewTab();
-        b.assertUrl("link");
     }
 
     @Then("^User should be able to see related articles$")
@@ -151,33 +129,26 @@ public class BlogFunctionality {
     public void clickOnOneOfTheLikeButtonsRandomly() {
         random_integer_value = b.randomIndexForLists(b.getIconHeart());
         like_number = b.getIconHeart_actual_value().get(random_integer_value).getText();
-        b.clickElement(b.getIconHeart_actual_value().get(random_integer_value));
+        b.javaScriptClick(b.getIconHeart_actual_value().get(random_integer_value));
     }
 
     @Then("^The number of likes should be changed$")
     public void theNumberOfLikesShouldBeChanged() {
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        /*   wait = new WebDriverWait(Drivers.getDriver(), 50);
-        wait.until(ExpectedConditions.not(ExpectedConditions.textToBe(By.xpath("//a//span[@class='label']"),b.getIconHeart_actual_value().get(random_integer_value).getText())));
-        */
-        Assert.assertNotEquals(b.getIconHeart_actual_value().get(random_integer_value).getText(), like_number);
+        for (int i = 0; i <b.getImage().size() ; i++) {
+            b.hoverOverRandomlyOnAnElement(b.getImage().get(i));
+        }//I had to wait, that is why I have written the code
 
+        Assert.assertNotEquals(b.getIconHeart_actual_value().get(random_integer_value).getText(), like_number);
     }
 
     @And("^Click on one of the Like buttons in the acticel page$")
     public void clickOnOneOfTheLikeButtonsInTheActicelPage() {
         like_number = b.getIconHeart_actual_value_inside().getText();
         b.javaScriptClick(b.getIconHeart_actual_value_inside());
-
     }
 
     @Then("^The number of likes should be changed in the artikel page$")
     public void theNumberOfLikesShouldBeChangedInTheArtikelPage() {
-        wait = new WebDriverWait(Drivers.getDriver(), 50);
         wait.until(ExpectedConditions.not(ExpectedConditions.textToBe((By.xpath("//span[@class='label']")), b.getIconHeart_actual_value_inside().getText())));
         Assert.assertNotEquals(b.getIconHeart_actual_value_inside().getText(), like_number);
     }
