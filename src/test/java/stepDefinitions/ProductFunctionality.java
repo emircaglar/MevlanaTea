@@ -1,12 +1,18 @@
 package stepDefinitions;
+
 import cucumber.api.java.en.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import pages.Cart;
 import pages.Home;
 import pages.Product;
 import pages.Products;
 import utils.Drivers;
+
 public class ProductFunctionality {
     String numberOfStock;
     int number;
@@ -16,12 +22,16 @@ public class ProductFunctionality {
     Products products;
     Home home;
     Cart cart;
+    Actions action;
+    WebDriverWait wait;
 
     public ProductFunctionality(Product product, Products products, Home home, Cart cart) {
         this.product = product;
         this.products = products;
         this.home = home;
         this.cart = cart;
+        action = new Actions(Drivers.getDriver());
+        wait = new WebDriverWait(Drivers.getDriver(), 10);
     }
 
     @And("^Click on one of the products randomly which is in the stocks$")
@@ -47,10 +57,11 @@ public class ProductFunctionality {
         number = Integer.parseInt(numberOfStock);
         rand = 1 + (int) (Math.random() * number);
         val = String.valueOf(rand);
-        if (!product.getQuantityOfProduct().getText().replaceAll("[^0-9]", "").equals("1")){
+        if (number==1){
+            product.clickElement(product.getAddToCart());
+        }else {
             products.sendKeys(product.getQuantityOfProduct(), val);
         }
-
     }
 
     @Then("^The correct number of the product should have been added to the cart$")
@@ -60,19 +71,21 @@ public class ProductFunctionality {
     }
 
     @When("^Click on the In den Warenkorb aktualisieren button$")
-    public void clickOnTheInDenWarenkorbAktualisierenButton(){
+    public void clickOnTheInDenWarenkorbAktualisierenButton() {
         product.waitUntilVisible(product.getQuantityOfProduct());
-        int index=(int) (Math.random()*Integer.parseInt(numberOfStock));
+        int index = 1 + (int) (Math.random() * Integer.parseInt(numberOfStock));
         product.sendKeys(product.getQuantityOfProduct(), String.valueOf(index));
+        cart.clickElement(cart.getIconCancelBtn());
         cart.clickElement(cart.getUpdateShoppingCartBtn());
+
     }
 
     @Then("^The user should be able to update the cart$")
-    public void theUserShouldBeAbleToUpdateTheCart() throws InterruptedException {
-        Thread.sleep(5000);
-        product.waitUntilVisible(product.getSuccessMsg());
-        if (!product.getQuantityOfProduct().getText().replaceAll("[^0-9]", "").equals("1")){
-            cart.assertMessage(product.getSuccessMsg(),"Warenkorb aktualisiert.");
+    public void theUserShouldBeAbleToUpdateTheCart() {
+        wait.until(ExpectedConditions.visibilityOf(product.getSuccessMsg()));
+        if (!product.getQuantityOfProduct().getText().replaceAll("[^0-9]", "").equals("1")) {
+            System.out.println(product.getSuccessMsg().getText());
+            cart.assertMessage(product.getSuccessMsg(), "Warenkorb aktualisiert.");
         }
 
     }
@@ -90,17 +103,10 @@ public class ProductFunctionality {
 
     @And("^Hover over one of the products' image randomly which is in the stocks$")
     public void hoverOverOneOfTheProductsImageRandomlyWhichIsInTheStocks() {
-       rand = products.randomIndexForLists(products.getProductList());
-        Actions actions = new Actions(Drivers.getDriver());
-        actions.moveToElement(products.getProductList().get(rand)).build().perform();
-
-
+        rand = products.randomIndexForLists(products.getProductList());
+        action.moveToElement(products.getProductList().get(rand)).build().perform();
     }
 
-//    @When("^Click on the link button$")
-//    public void clickOnTheLinkButton() {
-//        products.getProductList().get(rand).click();
-//    }
 
     @Then("^The user should be able to see the product details$")
     public void theUserShouldBeAbleToSeeTheProductDetails() {
@@ -138,7 +144,6 @@ public class ProductFunctionality {
 
     @When("^Click on one of the products randomly which is in the out of stocks$")
     public void clickOnOneOfTheProductsRandomlyWhichIsInTheOutOfStocks() {
-
         products.javaScriptClick(products.getProductListOutofStoc().get(products.randomIndexForLists(products.getProductListOutofStoc())));
     }
 
