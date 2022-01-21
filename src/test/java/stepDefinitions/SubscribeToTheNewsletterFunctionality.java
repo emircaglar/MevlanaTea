@@ -8,7 +8,7 @@ import utils.Parent;
 
 public class SubscribeToTheNewsletterFunctionality extends Parent {
 
-    private Home home = new Home();
+    private Home home;
 
     public SubscribeToTheNewsletterFunctionality(Home home) {
         this.home = home;
