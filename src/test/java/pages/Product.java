@@ -20,8 +20,7 @@ public class Product extends Parent {
     private WebElement quantityOfProduct;
     @FindBy(xpath="//p[@class=\"stock in-stock\"]")
     private WebElement stockNumber;
-    @FindBy(xpath="(//div[@class=\"woocommerce-message alert alert_success\"]/div)[2]")
-    private WebElement successMsg;
+    
 
     @FindBy(id ="paypal-animation-container")
     private WebElement payPall;
