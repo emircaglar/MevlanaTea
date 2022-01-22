@@ -20,11 +20,10 @@ public class Product extends Parent {
     private WebElement quantityOfProduct;
     @FindBy(xpath="//p[@class=\"stock in-stock\"]")
     private WebElement stockNumber;
-    
-
-    
-    
-    
+    @FindBy(css="em[class='woocommerce-review__awaiting-approval']")
+    private WebElement successMsg;
+    @FindBy(css="div[class='description']>p")
+    private WebElement descriptionMessage;   
     @FindBy(id ="paypal-animation-container")
     private WebElement payPall;
     @FindBy(xpath ="//p[@class='price']/span[@class='woocommerce-Price-amount amount']/bdi")
@@ -39,15 +38,20 @@ public class Product extends Parent {
     private WebElement upperLinkedIN;
     @FindBy(xpath ="//div[@class='icons']/a[4]")
     private WebElement upperPinterest;
-
     @FindBy(css ="[href='#tab-description']")
     private WebElement productDescription;
     @FindBy(css ="[href='#tab-additional_information']")
     private WebElement productAdditionalInformation;
-
+    @FindBy(css ="div[id='tab-description']>p")
+    private WebElement productDescriptionArticle;
+    @FindBy(css ="div[id='comments']>h2")
+    private WebElement bewertungenMessage;
+    @FindBy(css ="div[id='tab-additional_information']>table")
+    private WebElement zusatzlicheInformationen;
+    @FindBy(xpath ="//input[@id='submit']")
+    private WebElement senden;
     @FindBy(css ="[href='#tab-reviews']")
     private WebElement productReviews;
-
     @FindBy(css =".stars>span>a")
     private List<WebElement> productReviewsStars;
     @FindBy(id ="comment")
@@ -136,5 +140,23 @@ public class Product extends Parent {
     @FindBy(xpath ="//input[@id='submit']")
     private WebElement productReviewsSubmit;
 
+    public WebElement getProductDescriptionArticle() {
+        return productDescriptionArticle;
+    }
 
+    public WebElement getZusatzlicheInformationen() {
+        return zusatzlicheInformationen;
+    }
+
+    public WebElement getBewertungenMessage() {
+        return bewertungenMessage;
+    }
+
+    public WebElement getSenden() {
+        return senden;
+    }
+
+    public WebElement getDescriptionMessage() {
+        return descriptionMessage;
+    }
 }
