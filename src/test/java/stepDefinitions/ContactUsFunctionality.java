@@ -44,6 +44,7 @@ public class ContactUsFunctionality {
     public void clickOnTheSendenButton(){
 
         kt.clickElement(kt.getKontaktSendButton());
+
     }
 
     @Then("^\"([^\"]*)\" ,\"([^\"]*)\",\"([^\"]*)\"should be verify$")

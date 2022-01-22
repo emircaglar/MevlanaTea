@@ -48,3 +48,12 @@ Feature: Product Payment Functionality
       | Arif    | Tester   | Thyssenstrabe | 34119        | Kassel | ab123       | tester@gmail.com | true     | false        | false       | true                 | true                          | Telefon ist keine gültige Telefonnummer                                                                       |
       | Arif    | Tester   | Thyssenstrabe | 34119        | Kassel | 05617397718 | tester@          | true     | false        | false       | true                 | true                          | Ungültige Rechnungs E-Mail-Adresse                                                                       |
 
+    Scenario: TC_0827
+      Given Click on the Produkte button
+      And Click on one of the products randomly which is in the stocks
+      When Click on the In den Warenkorb button
+      Then Click on the Weiter zur Kasse button
+      And Click on the Gutschein message
+      And Fill the Gutschein code field randomly "123ert"
+      When click on the Gutschein anwenden button
+      Then The user should be able to see Der Gutschein  message

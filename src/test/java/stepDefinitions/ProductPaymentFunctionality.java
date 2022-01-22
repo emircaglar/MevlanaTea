@@ -48,16 +48,13 @@ public class ProductPaymentFunctionality {
 
     @When("^Select \"([^\"]*)\" as payment \"([^\"]*)\"$")
     public void selectAsPayment(Boolean payment, String option) {
-
-
-
         if (payment) {
-           if (!checkOut.getCreditCardRadio().isSelected())checkOut.clickElement(checkOut.getCreditCardRadio());
+            if (!checkOut.getCreditCardRadio().isSelected()) checkOut.clickElement(checkOut.getCreditCardRadio());
             Drivers.getDriver().switchTo().frame(0);
-           switch (option) {
+            switch (option) {
                 case "Paypal":
                     if (!checkOut.getPaymentMethods().get(0).isSelected())
-                    checkOut.javaScriptClick(checkOut.getPaymentMethods().get(0));
+                        checkOut.javaScriptClick(checkOut.getPaymentMethods().get(0));
                     break;
                 case "Lastschrift":
                     checkOut.javaScriptClick(checkOut.getPaymentMethods().get(1));
@@ -68,7 +65,6 @@ public class ProductPaymentFunctionality {
             }
             Drivers.getDriver().switchTo().defaultContent();
         }
-
     }
 
     @And("^Fill the nachname \"([^\"]*)\"$")
@@ -79,14 +75,11 @@ public class ProductPaymentFunctionality {
     @And("^Fill the straße \"([^\"]*)\"$")
     public void fillTheStraße(String street) {
         checkOut.sendKeys(checkOut.getAddress(), street);
-
     }
 
     @And("^Fill the postleitzahl \"([^\"]*)\"$")
     public void fillThePostleitzahl(String postcode) {
         checkOut.sendKeys(checkOut.getPostCode(), postcode);
-
-
     }
 
     @And("^Fill the Ort \"([^\"]*)\"$")
@@ -97,13 +90,11 @@ public class ProductPaymentFunctionality {
     @And("^Fill the telefon  \"([^\"]*)\"$")
     public void fillTheTelefon(String number) {
         checkOut.sendKeys(checkOut.getPhone(), number);
-
     }
 
     @And("^Fill the email \"([^\"]*)\"$")
     public void fillTheEmail(String email) {
         checkOut.sendKeys(checkOut.getEmail(), email);
-
     }
 
     @When("^Select \"([^\"]*)\" as payment option$")
@@ -121,12 +112,32 @@ public class ProductPaymentFunctionality {
 
     @Then("^The user shoul be able to see the appropriate \"([^\"]*)\"$")
     public void theUserShoulBeAbleToSeeTheAppropriate(String message) {
-        if (!(message.equals("")))
-        { checkOut.assertMessage(checkOut.getErrorMessage(), message);}
+        if (!(message.equals(""))) {
+            checkOut.assertMessage(checkOut.getErrorMessage(), message);
+        }
     }
 
     @When("^Click on the \"([^\"]*)\"$")
     public void clickOnThe(Boolean bessellen) {
         if (bessellen) checkOut.clickElement(checkOut.getPlaceOrder());
+    }
+
+    @Then("^Click on the Gutschein message$")
+    public void click_on_the_Gutschein_message()  {
+        checkOut.clickElement(checkOut.getShowCoupon());
+    }
+
+    @Then("^Fill the Gutschein code field randomly \"([^\"]*)\"$")
+    public void fill_the_Gutschein_code_field_randomly(String couponNo)  {
+        checkOut.sendKeys(checkOut.getCouponCodeInput(),couponNo);
+    }
+
+    @When("^click on the Gutschein anwenden button$")
+    public void click_on_the_Gutschein_anwenden_button()  {
+        checkOut.clickElement(checkOut.getApplyCoupon());
+    }
+    @Then("^The user should be able to see Der Gutschein  message$")
+    public void the_user_should_be_able_to_see_Der_Gutschein_message()  {
+        checkOut.assertMessage(checkOut.getCouponErrorMessage(),"existiert nicht");
     }
 }
