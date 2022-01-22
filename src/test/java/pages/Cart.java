@@ -40,6 +40,9 @@ public class Cart extends Parent {
 	private WebElement checkOutBtn;
 	@FindBy(xpath="//div[@class=\"paypal-button-label-container\"]")
 	private WebElement paypalBtn;
+	@FindBy(xpath="(//a[@class=\"close\"])[1]")
+	private WebElement iconCancelBtn;
+
 
 
 	public WebElement getItemText() {
@@ -92,5 +95,9 @@ public class Cart extends Parent {
 
 	public WebElement getPaypalBtn() {
 		return paypalBtn;
+	}
+
+	public WebElement getIconCancelBtn() {
+		return iconCancelBtn;
 	}
 }
