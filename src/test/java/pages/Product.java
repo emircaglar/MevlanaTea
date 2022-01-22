@@ -22,6 +22,9 @@ public class Product extends Parent {
     private WebElement stockNumber;
     
 
+    
+    
+    
     @FindBy(id ="paypal-animation-container")
     private WebElement payPall;
     @FindBy(xpath ="//p[@class='price']/span[@class='woocommerce-Price-amount amount']/bdi")
