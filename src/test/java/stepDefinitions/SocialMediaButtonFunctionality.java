@@ -4,7 +4,7 @@ import pages.Home;
 
 public class SocialMediaButtonFunctionality {
 
-    Home hm;
+    private Home hm;
     public SocialMediaButtonFunctionality (Home hm) {
         this.hm = hm;
     }
@@ -31,7 +31,6 @@ public class SocialMediaButtonFunctionality {
     public void theUserShouldBeAbleToSeeThePageOfTheCompany(String socialMediaPageUrl)  {
         hm.switchToNewTab();
         hm.assertUrl(socialMediaPageUrl);
-
     }
 }
 

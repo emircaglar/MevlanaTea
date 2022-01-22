@@ -1,24 +1,22 @@
 package stepDefinitions;
 
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
+import cucumber.api.java.en.*;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.*;
 import pages.Home;
 import utils.Drivers;
 
 public class MenuFunctionality {
 
-    Home hm;
-    WebDriverWait wait;
-    Actions actions;
+    private Home hm;
+    private WebDriverWait wait;
+    private Actions actions;
 
     public MenuFunctionality(Home hm) {
         this.hm = hm;
-        actions=new Actions(Drivers.getDriver());
-        wait=new WebDriverWait(Drivers.getDriver(),15);
+        actions = new Actions(Drivers.getDriver());
+        wait = new WebDriverWait(Drivers.getDriver(), 15);
     }
 
     @Given("^Click on the Produkte button$")

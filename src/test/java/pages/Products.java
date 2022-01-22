@@ -55,6 +55,7 @@ public class Products extends Parent {
     public List<WebElement> getProductListBasket() {
         return productListBasket;
     }
+
     public List<WebElement> getProductListLink() {
         return productListLink;
     }

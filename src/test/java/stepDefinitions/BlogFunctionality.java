@@ -1,29 +1,23 @@
 package stepDefinitions;
 
-
-import cucumber.api.PendingException;
-import cucumber.api.java.en.And;
-import cucumber.api.java.en.Then;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import cucumber.api.java.en.*;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.*;
 import org.testng.Assert;
 import pages.Blog;
 import utils.Drivers;
 
 public class BlogFunctionality {
-    Blog b;
-    String random_href;
-    int random_integer_value;
-    String like_number;
-    String search_value;
-    WebDriverWait wait;
+    private Blog b;
+    private String random_href;
+    private int random_integer_value;
+    private String like_number;
+    private String search_value;
+    private WebDriverWait wait;
 
     public BlogFunctionality(Blog b) {
         this.b = b;
         wait = new WebDriverWait(Drivers.getDriver(), 15);
-
     }
 
     @Then("^The user should be able to see the article$")
@@ -124,7 +118,6 @@ public class BlogFunctionality {
         Assert.assertTrue(b.getImageZoom().getAttribute("src").trim().contains(".jpg"));
     }
 
-
     @And("^Click on one of the Like buttons randomly$")
     public void clickOnOneOfTheLikeButtonsRandomly() {
         random_integer_value = b.randomIndexForLists(b.getIconHeart());
@@ -134,7 +127,7 @@ public class BlogFunctionality {
 
     @Then("^The number of likes should be changed$")
     public void theNumberOfLikesShouldBeChanged() {
-        for (int i = 0; i <b.getImage().size() ; i++) {
+        for (int i = 0; i < b.getImage().size(); i++) {
             b.hoverOverRandomlyOnAnElement(b.getImage().get(i));
         }//I had to wait, that is why I have written the code
 
@@ -153,21 +146,20 @@ public class BlogFunctionality {
         Assert.assertNotEquals(b.getIconHeart_actual_value_inside().getText(), like_number);
     }
 
-
     @And("^Click on the share on \"([^\"]*)\" button$")
     public void clickOnTheShareOnButton(String socialMedia) {
         switch (socialMedia) {
             case "Facebook":
-               b.clickElement(b.getShare_facebook());
+                b.clickElement(b.getShare_facebook());
                 break;
             case "Twitter":
-               b.clickElement(b.getIcon_twitter());
+                b.clickElement(b.getIcon_twitter());
                 break;
             case "Linked":
-               b.clickElement(b.getIcon_linkedin());
+                b.clickElement(b.getIcon_linkedin());
                 break;
             case "Pinterest":
-               b.clickElement(b.getShare_pinteres());
+                b.clickElement(b.getShare_pinteres());
                 break;
         }
     }

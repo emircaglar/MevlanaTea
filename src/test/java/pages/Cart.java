@@ -6,44 +6,53 @@ import org.openqa.selenium.support.PageFactory;
 import utils.Drivers;
 import utils.Parent;
 
-import java.util.List;
 
 public class Cart extends Parent {
     public Cart() {
         PageFactory.initElements(Drivers.getDriver(),this);
     }
-	@FindBy(xpath="//td[@data-title=\"Produkt\"]/a")
+
+    @FindBy(xpath="//td[@data-title=\"Produkt\"]/a")
 	private WebElement itemText;
-	@FindBy(xpath="(//span[@class=\"woocommerce-Price-amount amount\"])[1]")
+
+    @FindBy(xpath="(//span[@class=\"woocommerce-Price-amount amount\"])[1]")
 	private WebElement priceOfItem;
 
-	@FindBy(xpath="(//div[@class=\"woocommerce\"]/div)[2]")
+    @FindBy(xpath="(//div[@class=\"woocommerce\"]/div)[2]")
 	private WebElement deletedMessage;
 
-	@FindBy(xpath="(//span[@class=\"woocommerce-Price-amount amount\"])[2]")
+    @FindBy(xpath="(//span[@class=\"woocommerce-Price-amount amount\"])[2]")
 	private WebElement total;
-	@FindBy(css="td.product-remove")
+
+    @FindBy(css="td.product-remove")
 	private WebElement xbtn;
-	@FindBy(css="a.restore-item")
+
+    @FindBy(css="a.restore-item")
 	private WebElement ruckgangigBtn;
-	@FindBy(css="div.alert_wrapper>a")
+
+    @FindBy(css="div.alert_wrapper>a")
 	private WebElement weiterEinkaufenBtn;
-	@FindBy(xpath="//button[@name=\"update_cart\"]")
+
+    @FindBy(xpath="//button[@name=\"update_cart\"]")
 	private WebElement updateShoppingCartBtn;
-	@FindBy(xpath="//td[@data-title=\"Zwischensumme\"]")
+
+    @FindBy(xpath="//td[@data-title=\"Zwischensumme\"]")
 	private WebElement subTotal;
-	@FindBy(xpath="(//span[@class=\"woocommerce-Price-amount amount\"])[4]")
+
+    @FindBy(xpath="(//span[@class=\"woocommerce-Price-amount amount\"])[4]")
 	private WebElement shippingAmount;
-	@FindBy(xpath="(//span[@class=\"woocommerce-Price-amount amount\"])[5]")
+
+    @FindBy(xpath="(//span[@class=\"woocommerce-Price-amount amount\"])[5]")
 	private WebElement totalAmount;
-	@FindBy(xpath="//a[@class=\"checkout-button button alt wc-forward\"]")
+
+    @FindBy(xpath="//a[@class=\"checkout-button button alt wc-forward\"]")
 	private WebElement checkOutBtn;
-	@FindBy(xpath="//div[@class=\"paypal-button-label-container\"]")
+
+    @FindBy(xpath="//div[@class=\"paypal-button-label-container\"]")
 	private WebElement paypalBtn;
-	@FindBy(xpath="(//a[@class=\"close\"])[1]")
+
+    @FindBy(xpath="(//a[@class=\"close\"])[1]")
 	private WebElement iconCancelBtn;
-
-
 
 	public WebElement getItemText() {
 		return itemText;

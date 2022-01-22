@@ -4,13 +4,13 @@ import cucumber.api.java.en.*;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import pages.Home;
+
 import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import java.net.*;
 
 public class FooterMenuFunctionality {
 
-    Home hm;
+    private Home hm;
 
     public FooterMenuFunctionality(Home hm) {
         this.hm = hm;
@@ -31,23 +31,17 @@ public class FooterMenuFunctionality {
 
     @Then("^Footer menu links should work properly$")
     public void footerMenuLinksShouldWorkProperly() {
-
-        String url ="";
-        HttpURLConnection huc = null;
-        int respCode ;
+        String url;
+        HttpURLConnection huc;
+        int respCode;
 
         for (WebElement element : hm.getFooterMenuList()) {
-
             // We took the href of the anchor tag and stored it in the url variable.
             url = element.getAttribute("href");
-
             // We checked if the URL is null or Empty.
             if (url == null || url.isEmpty()) {
-
                 System.out.println("URL is either not configured for anchor tag or it is empty");
-
             } else {
-
                 try {
 
                     // HttpURLConnection class has methods to send HTTP request and capture HTTP response code.
@@ -73,6 +67,4 @@ public class FooterMenuFunctionality {
             }
         }
     }
-
-
 }

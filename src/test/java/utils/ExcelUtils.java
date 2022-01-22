@@ -2,23 +2,17 @@ package utils;
 
 import cucumber.api.Scenario;
 import org.apache.poi.ss.usermodel.*;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.poi.xssf.usermodel.*;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.time.Duration;
-import java.time.LocalTime;
+import java.io.*;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class ExcelUtils {
 
     public static void logScenarioToExcel(Scenario scenario, LocalTime start, LocalTime end, Duration duration, String browserName) {
-        String path="src/test/resources/logs/log.xlsx";
+        String path = "src/test/resources/logs/log.xlsx";
         File file = new File(path);
         if (!file.exists()) {
             XSSFWorkbook workbook = new XSSFWorkbook();
@@ -58,7 +52,7 @@ public class ExcelUtils {
                 row.createCell(2).setCellValue(browserName);
                 row.createCell(3).setCellValue(start.format(DateTimeFormatter.ISO_TIME));
                 row.createCell(4).setCellValue(end.format(DateTimeFormatter.ISO_TIME));
-                row.createCell(5).setCellValue(duration.toMillis()+ " miliseconds");
+                row.createCell(5).setCellValue(duration.toMillis() + " miliseconds");
                 row.createCell(6).setCellValue(scenario.getStatus());
                 FileOutputStream fileOutputStream = new FileOutputStream(path);
                 workbook.write(fileOutputStream);
@@ -67,24 +61,5 @@ public class ExcelUtils {
             } catch (IOException exception) {
             }
         }
-    }
-
-    public static List<String> getDataFromExcel(String path, String sheetName, int rowCount, int cellCount) {
-        List<String> list = new ArrayList<>();
-
-        try {
-            FileInputStream fileInputStream = new FileInputStream(path);
-            Workbook workbook = WorkbookFactory.create(fileInputStream);
-            Sheet sheet = workbook.getSheet(sheetName);
-            for (int i = 0; i < rowCount; i++) {
-                Row row = sheet.createRow(i);
-                for (int j = 0; j < cellCount; j++) {
-                    list.add(row.getCell(j).getStringCellValue());
-                }
-            }
-            fileInputStream.close();
-        } catch (IOException exception) {
-        }
-        return list;
     }
 }

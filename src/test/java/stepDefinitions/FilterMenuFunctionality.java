@@ -3,16 +3,14 @@ package stepDefinitions;
 import cucumber.api.DataTable;
 import cucumber.api.java.en.*;
 import org.openqa.selenium.support.ui.Select;
-import pages.Home;
 import pages.Products;
 import java.util.List;
 
 public class FilterMenuFunctionality {
 
-    Products products;
-    Home hm;
+    private Products products;
 
-    public FilterMenuFunctionality(Products products){
+    public FilterMenuFunctionality(Products products) {
         this.products = products;
     }
 
@@ -27,13 +25,13 @@ public class FilterMenuFunctionality {
     }
 
     @Then("^Click on the filtering type$")
-    public void clickOnTheFilteringType(DataTable elements)  {
+    public void clickOnTheFilteringType(DataTable elements) {
 
-        List<String> listElement=elements.asList(String.class);
-        
+        List<String> listElement = elements.asList(String.class);
+
         for (int i = 0; i < listElement.size(); i++) {
 
-            Select a= new Select(products.getFilterMenu());
+            Select a = new Select(products.getFilterMenu());
             a.selectByValue(listElement.get(i));
             products.getFilterBtn().click();
             products.assertUrl(listElement.get(i));
