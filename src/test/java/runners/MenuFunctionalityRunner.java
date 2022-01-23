@@ -13,7 +13,7 @@ public class MenuFunctionalityRunner extends AbstractTestNGCucumberTests {
 
     @BeforeClass
     @Parameters({"browser", "language"})
-    public void baslangic(String browser, String language) {
+    public void initiate(String browser, String language) {
         Drivers.threadBrowserName.set(browser);
         Drivers.threadLanguage.set(language);
     }

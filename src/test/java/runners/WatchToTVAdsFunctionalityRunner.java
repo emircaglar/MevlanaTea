@@ -14,7 +14,7 @@ public class WatchToTVAdsFunctionalityRunner extends AbstractTestNGCucumberTests
 
     @BeforeClass
     @Parameters({"browser", "language"})
-    public void start(String browser, String language) {
+    public void initiate(String browser, String language) {
         Drivers.threadBrowserName.set(browser);
         Drivers.threadLanguage.set(language);
     }
