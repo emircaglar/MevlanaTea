@@ -60,6 +60,19 @@ public class Product extends Parent {
     private WebElement productReviewsName;
     @FindBy(id ="email")
     private WebElement productReviewsemail;
+@FindBy(css ="iframe[class='zoid-component-frame zoid-visible']")
+    private WebElement iFrame;
+
+    public WebElement getPayPalButton() {
+        return payPalButton;
+    }
+
+    @FindBy(xpath ="//div[.='Weiter']")
+    private WebElement payPalButton;
+
+    public WebElement getiFrame() {
+        return iFrame;
+    }
 
     public WebElement getAddToCart() {
         return addToCart;
