@@ -1,23 +1,19 @@
 package utils;
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.*;
 import org.testng.Assert;
 import pages.Home;
-import java.util.List;
-import java.util.Set;
+
+import java.util.*;
 
 public class Parent {
 
-    WebDriverWait wait;
-    JavascriptExecutor js;
-    Actions actions;
-    static WebDriver driver;
+    private WebDriverWait wait;
+    private JavascriptExecutor js;
+    private Actions actions;
+    private static WebDriver driver;
 
     public Parent() {
         wait = new WebDriverWait(Drivers.getDriver(), 15);
@@ -57,15 +53,15 @@ public class Parent {
 
     public void assertMessage(WebElement element, String messageDE, String messageTR, String messageEN) { // asserts a webelement's text contains message
         waitUntilVisible(element);
-        switch (Drivers.threadLanguage.get()){
+        switch (Drivers.threadLanguage.get()) {
             case "DE":
-                assertMessage(element,messageDE);
+                assertMessage(element, messageDE);
                 break;
             case "TR":
-                assertMessage(element,messageTR);
+                assertMessage(element, messageTR);
                 break;
             case "EN":
-                assertMessage(element,messageEN);
+                assertMessage(element, messageEN);
                 break;
         }
     }
@@ -74,8 +70,8 @@ public class Parent {
         Assert.assertTrue(Drivers.getDriver().getCurrentUrl().contains(urlPart));
     }
 
-    public void assertUrl(String urlPartDE, String urlPartTR, String urlPartEN){
-        switch (Drivers.threadLanguage.get()){
+    public void assertUrl(String urlPartDE, String urlPartTR, String urlPartEN) {
+        switch (Drivers.threadLanguage.get()) {
             case "DE":
                 assertUrl(urlPartDE);
                 break;
@@ -104,14 +100,14 @@ public class Parent {
         actions.moveToElement(element).build().perform();
     }
 
-    public void javaScriptClick(WebElement element){
+    public void javaScriptClick(WebElement element) {
         scrollToElement(element);
         waitUntilClickable(element);
         JavascriptExecutor executor = (JavascriptExecutor) Drivers.getDriver();
         executor.executeScript("arguments[0].click();", element);
     }
 
-    public static void urlgit(String language){
+    public static void urlgit(String language) {
         driver = Drivers.getDriver();
         switch (language) {
             case "TR":
@@ -124,22 +120,22 @@ public class Parent {
                 driver.get("https://www.mevlanacay.de/");
                 break;
         }
-        Home hm=new Home();
+        Home hm = new Home();
         hm.waitUntilVisible(hm.getHome_cookise_accept());
         hm.clickElement(hm.getHome_cookise_accept());
     }
 
-    public void switchToNewTab(){
+    public void switchToNewTab() {
         String homePageID = Drivers.getDriver().getWindowHandle();
         Set<String> windowIds = Drivers.getDriver().getWindowHandles();
-        for (String id:windowIds) {
+        for (String id : windowIds) {
             if (id.equals(homePageID)) continue;
 
             Drivers.getDriver().switchTo().window(id);
         }
     }
 
-    public void options_actions(WebElement element, WebDriver driver){
+    public void options_actions(WebElement element, WebDriver driver) {
         actions.moveToElement(element).sendKeys(Keys.ENTER).build().perform();
     }
 }

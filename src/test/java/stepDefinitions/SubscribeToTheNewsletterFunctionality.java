@@ -4,9 +4,8 @@ import cucumber.api.java.en.*;
 import org.testng.Assert;
 import pages.Home;
 import utils.Drivers;
-import utils.Parent;
 
-public class SubscribeToTheNewsletterFunctionality extends Parent {
+public class SubscribeToTheNewsletterFunctionality {
 
     private Home home;
 
@@ -16,31 +15,31 @@ public class SubscribeToTheNewsletterFunctionality extends Parent {
 
     @Given("^Type an \"([^\"]*)\" into the email input on the top of the page$")
     public void typeAnIntoTheEmailInputOnTheTopOfThePage(String email) {
-        sendKeys(home.getHome_e_mail_input(), email);
+        home.sendKeys(home.getHome_e_mail_input(), email);
     }
 
     @And("^Click on the Jetzt abonnieren button$")
     public void clickOnTheJetztAbonnierenButton() {
-        clickElement(home.getHome_e_mail_submit());
+        home.clickElement(home.getHome_e_mail_submit());
     }
 
     @Given("^Type an \"([^\"]*)\" into the email input on the bottom of the page$")
     public void typeAnIntoTheEmailInputOnTheBottomOfThePage(String email) {
-        sendKeys(home.getHome_e_mail_bottom_input(), email);
+        home.sendKeys(home.getHome_e_mail_bottom_input(), email);
     }
 
     @And("^Click on the registrieren button$")
     public void clickOnTheRegistrierenButton() {
-        clickElement(home.getHome_e_mail_bottom_senden());
+        home.clickElement(home.getHome_e_mail_bottom_senden());
     }
 
     @Then("^The user should see the error alert with invalid \"([^\"]*)\" or success message with valid e-mail for bottom registration$")
     public void theUserShouldSeeTheErrorAlertWithInvalidOrSuccessMessageWithValidEMailForBottomRegistration(String email) {
         if (email.contains("@gmail.com")) {
             if (Drivers.getDriver().getCurrentUrl().equals("https://www.mevlanacay.de/")) {
-                assertMessage(home.getHome_e_mail_bottom_successMessage(), "Dankeschön, Deine Anmeldung war erfolgreich!");
+                home.assertMessage(home.getHome_e_mail_bottom_successMessage(), "Dankeschön, Deine Anmeldung war erfolgreich!");
             } else {
-                assertMessage(home.getHome_e_mail_bottom_successMessage(), "Teşekkürler, kayıt başvurunuz başarıyla tamamlandı!");
+                home.assertMessage(home.getHome_e_mail_bottom_successMessage(), "Teşekkürler, kayıt başvurunuz başarıyla tamamlandı!");
             }
         } else {
             Assert.assertTrue(home.getHome_e_mail_input().getAttribute("validationMessage")
@@ -58,9 +57,9 @@ public class SubscribeToTheNewsletterFunctionality extends Parent {
     public void theUserShouldSeeTheErrorAlertWithInvalidOrSuccessMessageWithValidEMailForTopRegistration(String email) {
         if (email.contains("@gmail.com")) {
             if (Drivers.getDriver().getCurrentUrl().equals("https://www.mevlanacay.de/")) {
-                assertMessage(home.getHome_e_mail_bar_menu_message(), "Sie haben sich erfolgreich registriert! Vielen Dank. Bitte überprüfen Sie die Bestätigungs-E-Mail, die wir Ihnen gesendet haben.");
+                home.assertMessage(home.getHome_e_mail_bar_menu_message(), "Sie haben sich erfolgreich registriert! Vielen Dank. Bitte überprüfen Sie die Bestätigungs-E-Mail, die wir Ihnen gesendet haben.");
             } else {
-                assertMessage(home.getHome_e_mail_bar_menu_message(), "Başarıyla kaydoldunuz. Teşekkürler.");
+                home.assertMessage(home.getHome_e_mail_bar_menu_message(), "Başarıyla kaydoldunuz. Teşekkürler.");
             }
         } else {
             Assert.assertTrue(home.getHome_e_mail_input().getAttribute("validationMessage")

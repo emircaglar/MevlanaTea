@@ -71,12 +71,12 @@ public class Blog extends Parent {
     @FindBy(xpath = "//span//i[@class='icon-heart-fa']")
     private WebElement iconHeart_inside;
 
+    @FindBy(className = "entry-title")
+    private WebElement name_selected_artikel;
+
     public WebElement getName_selected_artikel() {
         return name_selected_artikel;
     }
-
-    @FindBy(className = "entry-title")
-    private WebElement name_selected_artikel;
 
     public List<WebElement> getArticles() {
         return articles;

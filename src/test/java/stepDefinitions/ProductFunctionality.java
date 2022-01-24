@@ -1,29 +1,23 @@
 package stepDefinitions;
 
 import cucumber.api.java.en.*;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.*;
 import org.testng.Assert;
-import pages.Cart;
-import pages.Home;
-import pages.Product;
-import pages.Products;
+import pages.*;
 import utils.Drivers;
 
 public class ProductFunctionality {
-    String numberOfStock;
-    int number;
-    int rand;
-    String val;
-    Product product;
-    Products products;
-    Home home;
-    Cart cart;
-    Actions action;
-    WebDriverWait wait;
+    private String numberOfStock;
+    private int number;
+    private int rand;
+    private String val;
+    private Product product;
+    private Products products;
+    private Home home;
+    private Cart cart;
+    private Actions action;
+    private WebDriverWait wait;
 
     public ProductFunctionality(Product product, Products products, Home home, Cart cart) {
         this.product = product;
@@ -38,7 +32,6 @@ public class ProductFunctionality {
     public void clickOnOneOfTheProductsRandomlyWhichIsInTheStocks() {
         products.javaScriptClick(products.getProductList().get(product.randomIndexForLists(products.getProductList())));
     }
-
 
     @When("^Click on the In den Warenkorb button$")
     public void clickOnTheInDenWarenkorbButton() {
@@ -57,9 +50,9 @@ public class ProductFunctionality {
         number = Integer.parseInt(numberOfStock);
         rand = 1 + (int) (Math.random() * number);
         val = String.valueOf(rand);
-        if (number==1){
+        if (number == 1) {
             product.clickElement(product.getAddToCart());
-        }else {
+        } else {
             products.sendKeys(product.getQuantityOfProduct(), val);
         }
     }
@@ -77,7 +70,6 @@ public class ProductFunctionality {
         product.sendKeys(product.getQuantityOfProduct(), String.valueOf(index));
         cart.clickElement(cart.getIconCancelBtn());
         cart.clickElement(cart.getUpdateShoppingCartBtn());
-
     }
 
     @Then("^The user should be able to update the cart$")
@@ -87,7 +79,6 @@ public class ProductFunctionality {
             System.out.println(product.getSuccessMsg().getText());
             cart.assertMessage(product.getSuccessMsg(), "Warenkorb aktualisiert.");
         }
-
     }
 
     @When("^Click on the X button$")
@@ -106,7 +97,6 @@ public class ProductFunctionality {
         rand = products.randomIndexForLists(products.getProductList());
         action.moveToElement(products.getProductList().get(rand)).build().perform();
     }
-
 
     @Then("^The user should be able to see the product details$")
     public void theUserShouldBeAbleToSeeTheProductDetails() {
@@ -134,7 +124,6 @@ public class ProductFunctionality {
     public void clickOnTheWeiterEinkaufenButton() {
         cart.waitUntilVisible(cart.getWeiterEinkaufenBtn());
         cart.clickElement(cart.getWeiterEinkaufenBtn());
-
     }
 
     @Then("^The user should be able to see the Produkte page$")

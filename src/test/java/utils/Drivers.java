@@ -9,7 +9,7 @@ public class Drivers {
 
     private static ThreadLocal<WebDriver> threadDriver = new ThreadLocal<>();
     public static ThreadLocal<String> threadBrowserName = new ThreadLocal<>();
-    public static ThreadLocal<String> threadLanguage=new ThreadLocal<>();
+    public static ThreadLocal<String> threadLanguage = new ThreadLocal<>();
 
     public static WebDriver getDriver() {
         if (threadBrowserName.get() == null) {

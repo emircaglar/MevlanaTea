@@ -3,17 +3,16 @@ package stepDefinitions;
 import cucumber.api.java.en.*;
 import pages.Kontakt;
 
-
 public class ContactUsFunctionality {
 
-    Kontakt kt;
+    private Kontakt kt;
 
     public ContactUsFunctionality(Kontakt kt) {
         this.kt = kt;
     }
 
     @When("^Type in the Name input \"([^\"]*)\"$")
-    public void typeInTheNameInput(String inputName)  {
+    public void typeInTheNameInput(String inputName) {
         kt.sendKeys(kt.getContactUsNameInput(), inputName);
     }
 
@@ -33,13 +32,13 @@ public class ContactUsFunctionality {
     }
 
     @And("Click on the Senden Button")
-    public void clickOnTheSendenButton(){
+    public void clickOnTheSendenButton() {
         kt.clickElement(kt.getKontaktSendButton());
     }
 
     @Then("^\"([^\"]*)\" ,\"([^\"]*)\",\"([^\"]*)\"should be verify$")
     public void shouldBeVerify(String messageDE, String messageTR, String messageEN) {
         kt.waitUntilVisible(kt.getSentAndFailMessage());
-        kt.assertMessage(kt.getSentAndFailMessage(),messageDE,messageTR,messageEN);
+        kt.assertMessage(kt.getSentAndFailMessage(), messageDE, messageTR, messageEN);
     }
 }

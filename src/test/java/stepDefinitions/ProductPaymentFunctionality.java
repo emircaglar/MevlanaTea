@@ -1,14 +1,11 @@
 package stepDefinitions;
 
-import cucumber.api.java.en.And;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
-import org.openqa.selenium.By;
+
+
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pages.Cart;
-import pages.CheckOut;
-import pages.Product;
+import cucumber.api.java.en.*;
+import pages.*;
 import utils.Drivers;
 
 public class ProductPaymentFunctionality {
@@ -16,6 +13,14 @@ public class ProductPaymentFunctionality {
     CheckOut checkOut;
     Cart cart;
     WebDriverWait wait=new WebDriverWait(Drivers.getDriver(),15);
+
+
+
+public class ProductPaymentFunctionality {
+    private Product product;
+    private CheckOut checkOut;
+    private Cart cart;
+
 
     public ProductPaymentFunctionality(Product product, CheckOut checkOut, Cart cart) {
         this.checkOut = checkOut;
@@ -113,7 +118,6 @@ public class ProductPaymentFunctionality {
         if (term) checkOut.clickElement(checkOut.getTermsAndConditions());
     }
 
-
     @Then("^The user shoul be able to see the appropriate \"([^\"]*)\"$")
     public void theUserShoulBeAbleToSeeTheAppropriate(String message) {
         if (!(message.equals(""))) {
@@ -127,21 +131,22 @@ public class ProductPaymentFunctionality {
     }
 
     @Then("^Click on the Gutschein message$")
-    public void click_on_the_Gutschein_message()  {
+    public void click_on_the_Gutschein_message() {
         checkOut.clickElement(checkOut.getShowCoupon());
     }
 
     @Then("^Fill the Gutschein code field randomly \"([^\"]*)\"$")
-    public void fill_the_Gutschein_code_field_randomly(String couponNo)  {
-        checkOut.sendKeys(checkOut.getCouponCodeInput(),couponNo);
+    public void fill_the_Gutschein_code_field_randomly(String couponNo) {
+        checkOut.sendKeys(checkOut.getCouponCodeInput(), couponNo);
     }
 
     @When("^click on the Gutschein anwenden button$")
-    public void click_on_the_Gutschein_anwenden_button()  {
+    public void click_on_the_Gutschein_anwenden_button() {
         checkOut.clickElement(checkOut.getApplyCoupon());
     }
+
     @Then("^The user should be able to see Der Gutschein  message$")
-    public void the_user_should_be_able_to_see_Der_Gutschein_message()  {
-        checkOut.assertMessage(checkOut.getCouponErrorMessage(),"existiert nicht");
+    public void the_user_should_be_able_to_see_Der_Gutschein_message() {
+        checkOut.assertMessage(checkOut.getCouponErrorMessage(), "existiert nicht");
     }
 }

@@ -2,16 +2,16 @@ package stepDefinitions;
 
 import cucumber.api.java.en.*;
 import org.testng.Assert;
-import pages.Home;
-import pages.UberUns;
+import pages.*;
 
 public class SubmenusOfTheAboutUsFunctionality {
 
-    Home hm;
-    UberUns uberUns;
-    public SubmenusOfTheAboutUsFunctionality (Home hm,UberUns uberUns) {
+    private Home hm;
+    private UberUns uberUns;
+
+    public SubmenusOfTheAboutUsFunctionality(Home hm, UberUns uberUns) {
         this.hm = hm;
-        this.uberUns =uberUns;
+        this.uberUns = uberUns;
     }
 
     @Given("^Hover over the About Us button$")
@@ -20,8 +20,8 @@ public class SubmenusOfTheAboutUsFunctionality {
     }
 
     @Then("^The user should be able to see the sub menus of the About Us page$")
-    public void the_user_should_be_able_to_see_the_sub_menus_of_the_Uber_Uns_page()  {
-        boolean submenuEnabled=hm.getAbout_Us_Submenu().isEnabled();
+    public void the_user_should_be_able_to_see_the_sub_menus_of_the_Uber_Uns_page() {
+        boolean submenuEnabled = hm.getAbout_Us_Submenu().isEnabled();
         Assert.assertTrue(submenuEnabled);
     }
 
@@ -32,7 +32,7 @@ public class SubmenusOfTheAboutUsFunctionality {
 
     @Then("^The user should be able see the TV Ads page\\.$")
     public void theUserShouldBeAbleSeeTheTVAdsPage() {
-        uberUns.assertUrl("tv-spots","tv-reklamlari","tv-ads");
+        uberUns.assertUrl("tv-spots", "tv-reklamlari", "tv-ads");
     }
 
     @And("^Click on the Impressum button$")
@@ -42,7 +42,7 @@ public class SubmenusOfTheAboutUsFunctionality {
 
     @Then("^The user should be able to see the Impressum page$")
     public void theUserShouldBeAbleToSeeTheImpressumPage() {
-        uberUns.assertUrl("impressum","kunye","impressum");
+        uberUns.assertUrl("impressum", "kunye", "impressum");
     }
 
     @And("^Click on the FAQ button$")
@@ -52,6 +52,6 @@ public class SubmenusOfTheAboutUsFunctionality {
 
     @Then("^The user should be able to see the FAQ page$")
     public void theUserShouldBeAbleToSeeTheFAQPage() {
-        uberUns.assertUrl("haufig-gestellte-fragen","sss","faq");
+        uberUns.assertUrl("haufig-gestellte-fragen", "sss", "faq");
     }
 }

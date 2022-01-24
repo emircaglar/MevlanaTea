@@ -3,12 +3,10 @@ package utils;
 import cucumber.api.Scenario;
 import cucumber.api.java.*;
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import java.io.File;
-import java.io.IOException;
-import java.time.Duration;
-import java.time.LocalTime;
+import org.openqa.selenium.*;
+
+import java.io.*;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 
 public class Hooks {

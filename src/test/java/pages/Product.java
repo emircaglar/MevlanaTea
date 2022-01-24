@@ -16,48 +16,70 @@ public class Product extends Parent {
 
     @FindBy(css ="[name='add-to-cart']")
     private WebElement addToCart;
+
     @FindBy(css="div.quantity>input")
     private WebElement quantityOfProduct;
+
     @FindBy(xpath="//p[@class=\"stock in-stock\"]")
     private WebElement stockNumber;
+
     @FindBy(css="em[class='woocommerce-review__awaiting-approval']")
     private WebElement successMsg;
+
     @FindBy(css="div[class='description']>p")
     private WebElement descriptionMessage;   
+
     @FindBy(id ="paypal-animation-container")
     private WebElement payPall;
+
     @FindBy(xpath ="//p[@class='price']/span[@class='woocommerce-Price-amount amount']/bdi")
     private WebElement productPrice;
+
     @FindBy(css =".product_title")
     private WebElement productTitle;
+
     @FindBy(xpath ="//div[@class='icons']/a[1]")
     private WebElement upperFacebook;
+
     @FindBy(xpath ="//div[@class='icons']/a[2]")
     private WebElement upperTwitter;
+
     @FindBy(xpath ="//div[@class='icons']/a[3]")
     private WebElement upperLinkedIN;
+
     @FindBy(xpath ="//div[@class='icons']/a[4]")
     private WebElement upperPinterest;
+
     @FindBy(css ="[href='#tab-description']")
     private WebElement productDescription;
+
     @FindBy(css ="[href='#tab-additional_information']")
     private WebElement productAdditionalInformation;
+
     @FindBy(css ="div[id='tab-description']>p")
     private WebElement productDescriptionArticle;
+
     @FindBy(css ="div[id='comments']>h2")
     private WebElement bewertungenMessage;
+
     @FindBy(css ="div[id='tab-additional_information']>table")
     private WebElement zusatzlicheInformationen;
+
     @FindBy(xpath ="//input[@id='submit']")
     private WebElement senden;
+
     @FindBy(css ="[href='#tab-reviews']")
     private WebElement productReviews;
+
     @FindBy(css =".stars>span>a")
     private List<WebElement> productReviewsStars;
+
     @FindBy(id ="comment")
     private WebElement productReviewsCommentText;
+
     @FindBy(id ="author")
     private WebElement productReviewsName;
+
     @FindBy(id ="email")
     private WebElement productReviewsemail;
 @FindBy(css ="iframe[class='zoid-component-frame zoid-visible']")
