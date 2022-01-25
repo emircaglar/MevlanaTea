@@ -82,7 +82,8 @@ public class Product extends Parent {
 
     @FindBy(id ="email")
     private WebElement productReviewsemail;
-@FindBy(css ="iframe[class='zoid-component-frame zoid-visible']")
+    
+    @FindBy(css ="iframe[class='zoid-component-frame zoid-visible']")
     private WebElement iFrame;
 
     public WebElement getPayPalButton() {
