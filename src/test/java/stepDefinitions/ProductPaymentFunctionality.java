@@ -1,34 +1,45 @@
 package stepDefinitions;
 
+
+
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import cucumber.api.java.en.*;
 import pages.*;
 import utils.Drivers;
+
+public class ProductPaymentFunctionality {
+    Product product;
+    CheckOut checkOut;
+    Cart cart;
+    WebDriverWait wait=new WebDriverWait(Drivers.getDriver(),15);
+
 
 public class ProductPaymentFunctionality {
     private Product product;
     private CheckOut checkOut;
     private Cart cart;
 
+
     public ProductPaymentFunctionality(Product product, CheckOut checkOut, Cart cart) {
         this.checkOut = checkOut;
         this.product = product;
         this.cart = cart;
+
     }
 
     @When("^Click on the PayPal button$")
     public void clickOnThePayPalButton() {
-        Drivers.getDriver().switchTo().frame(1);
+         wait.until(ExpectedConditions.visibilityOf(product.getiFrame()));
+        Drivers.getDriver().switchTo().frame(product.getiFrame());
         product.clickElement(product.getPayPall());
     }
 
     @Then("^The user should be able to see PayPal login page$")
     public void theUserShouldBeAbleToSeePayPalLoginPage() {
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
         product.switchToNewTab();
+        wait.until(ExpectedConditions.visibilityOf(product.getPayPalButton()));
         product.assertUrl("paypal.com");
     }
 
@@ -102,6 +113,7 @@ public class ProductPaymentFunctionality {
 
     @And("^Select the \"([^\"]*)\"$")
     public void selectThe(Boolean term) {
+       wait.until(ExpectedConditions.elementToBeClickable(checkOut.getTermsAndConditions()));
         if (term) checkOut.clickElement(checkOut.getTermsAndConditions());
     }
 
