@@ -15,7 +15,6 @@ public class ProductPaymentFunctionality {
     WebDriverWait wait=new WebDriverWait(Drivers.getDriver(),15);
 
 
-
 public class ProductPaymentFunctionality {
     private Product product;
     private CheckOut checkOut;
