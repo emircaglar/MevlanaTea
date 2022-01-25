@@ -20,4 +20,12 @@
         </classes>
     </test>
 
+    <test name="Filter Menu Functionality in German">
+        <parameter name="browser" value="chrome"></parameter>
+        <parameter name="language" value="DE"></parameter>
+        <classes>
+            <class name="runners.FilterMenuFunctionalityGermanyRunner"></class>
+        </classes>
+    </test>
+
 </suite>
