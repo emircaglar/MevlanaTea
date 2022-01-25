@@ -9,23 +9,15 @@ import pages.*;
 import utils.Drivers;
 
 public class ProductPaymentFunctionality {
-    Product product;
-    CheckOut checkOut;
-    Cart cart;
-    WebDriverWait wait=new WebDriverWait(Drivers.getDriver(),15);
-
-
-public class ProductPaymentFunctionality {
     private Product product;
     private CheckOut checkOut;
     private Cart cart;
-
+    private WebDriverWait wait=new WebDriverWait(Drivers.getDriver(),15);
 
     public ProductPaymentFunctionality(Product product, CheckOut checkOut, Cart cart) {
         this.checkOut = checkOut;
         this.product = product;
         this.cart = cart;
-
     }
 
     @When("^Click on the PayPal button$")
@@ -37,7 +29,6 @@ public class ProductPaymentFunctionality {
 
     @Then("^The user should be able to see PayPal login page$")
     public void theUserShouldBeAbleToSeePayPalLoginPage() {
-
         product.switchToNewTab();
         wait.until(ExpectedConditions.visibilityOf(product.getPayPalButton()));
         product.assertUrl("paypal.com");

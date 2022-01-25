@@ -11,86 +11,86 @@ import java.util.List;
 public class Product extends Parent {
 
     public Product() {
-        PageFactory.initElements(Drivers.getDriver(),this);
+        PageFactory.initElements(Drivers.getDriver(), this);
     }
 
-    @FindBy(css ="[name='add-to-cart']")
+    @FindBy(css = "[name='add-to-cart']")
     private WebElement addToCart;
 
-    @FindBy(css="div.quantity>input")
+    @FindBy(css = "div.quantity>input")
     private WebElement quantityOfProduct;
 
-    @FindBy(xpath="//p[@class=\"stock in-stock\"]")
+    @FindBy(xpath = "//p[@class=\"stock in-stock\"]")
     private WebElement stockNumber;
 
-    @FindBy(css="em[class='woocommerce-review__awaiting-approval']")
+    @FindBy(css = "em[class='woocommerce-review__awaiting-approval']")
     private WebElement successMsg;
 
-    @FindBy(css="div[class='description']>p")
-    private WebElement descriptionMessage;   
+    @FindBy(css = "div[class='description']>p")
+    private WebElement descriptionMessage;
 
-    @FindBy(id ="paypal-animation-content")
+    @FindBy(id = "paypal-animation-content")
     private WebElement payPall;
 
-    @FindBy(xpath ="//p[@class='price']/span[@class='woocommerce-Price-amount amount']/bdi")
+    @FindBy(xpath = "//p[@class='price']/span[@class='woocommerce-Price-amount amount']/bdi")
     private WebElement productPrice;
 
-    @FindBy(css =".product_title")
+    @FindBy(css = ".product_title")
     private WebElement productTitle;
 
-    @FindBy(xpath ="//div[@class='icons']/a[1]")
+    @FindBy(xpath = "//div[@class='icons']/a[1]")
     private WebElement upperFacebook;
 
-    @FindBy(xpath ="//div[@class='icons']/a[2]")
+    @FindBy(xpath = "//div[@class='icons']/a[2]")
     private WebElement upperTwitter;
 
-    @FindBy(xpath ="//div[@class='icons']/a[3]")
+    @FindBy(xpath = "//div[@class='icons']/a[3]")
     private WebElement upperLinkedIN;
 
-    @FindBy(xpath ="//div[@class='icons']/a[4]")
+    @FindBy(xpath = "//div[@class='icons']/a[4]")
     private WebElement upperPinterest;
 
-    @FindBy(css ="[href='#tab-description']")
+    @FindBy(css = "[href='#tab-description']")
     private WebElement productDescription;
 
-    @FindBy(css ="[href='#tab-additional_information']")
+    @FindBy(css = "[href='#tab-additional_information']")
     private WebElement productAdditionalInformation;
 
-    @FindBy(css ="div[id='tab-description']>p")
+    @FindBy(css = "div[id='tab-description']>p")
     private WebElement productDescriptionArticle;
 
-    @FindBy(css ="div[id='comments']>h2")
+    @FindBy(css = "div[id='comments']>h2")
     private WebElement bewertungenMessage;
 
-    @FindBy(css ="div[id='tab-additional_information']>table")
+    @FindBy(css = "div[id='tab-additional_information']>table")
     private WebElement zusatzlicheInformationen;
 
-    @FindBy(xpath ="//input[@id='submit']")
+    @FindBy(xpath = "//input[@id='submit']")
     private WebElement senden;
 
-    @FindBy(css ="[href='#tab-reviews']")
+    @FindBy(css = "[href='#tab-reviews']")
     private WebElement productReviews;
 
-    @FindBy(css =".stars>span>a")
+    @FindBy(css = ".stars>span>a")
     private List<WebElement> productReviewsStars;
 
-    @FindBy(id ="comment")
+    @FindBy(id = "comment")
     private WebElement productReviewsCommentText;
 
-    @FindBy(id ="author")
+    @FindBy(id = "author")
     private WebElement productReviewsName;
 
-    @FindBy(id ="email")
+    @FindBy(id = "email")
     private WebElement productReviewsemail;
-    
-    @FindBy(css ="iframe[class='zoid-component-frame zoid-visible']")
+
+    @FindBy(css = "iframe[class='zoid-component-frame zoid-visible']")
     private WebElement iFrame;
 
     public WebElement getPayPalButton() {
         return payPalButton;
     }
 
-    @FindBy(xpath ="//div[.='Weiter']")
+    @FindBy(xpath = "//div[.='Weiter']")
     private WebElement payPalButton;
 
     public WebElement getiFrame() {
@@ -173,7 +173,7 @@ public class Product extends Parent {
         return successMsg;
     }
 
-    @FindBy(xpath ="//input[@id='submit']")
+    @FindBy(xpath = "//input[@id='submit']")
     private WebElement productReviewsSubmit;
 
     public WebElement getProductDescriptionArticle() {
