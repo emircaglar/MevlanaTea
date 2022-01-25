@@ -1,7 +1,5 @@
 package stepDefinitions;
 
-
-
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import cucumber.api.java.en.*;
@@ -12,17 +10,18 @@ public class ProductPaymentFunctionality {
     private Product product;
     private CheckOut checkOut;
     private Cart cart;
-    private WebDriverWait wait=new WebDriverWait(Drivers.getDriver(),15);
+    private WebDriverWait wait;
 
     public ProductPaymentFunctionality(Product product, CheckOut checkOut, Cart cart) {
         this.checkOut = checkOut;
         this.product = product;
         this.cart = cart;
+        wait = new WebDriverWait(Drivers.getDriver(), 15);
     }
 
     @When("^Click on the PayPal button$")
     public void clickOnThePayPalButton() {
-         wait.until(ExpectedConditions.visibilityOf(product.getiFrame()));
+        wait.until(ExpectedConditions.visibilityOf(product.getiFrame()));
         Drivers.getDriver().switchTo().frame(product.getiFrame());
         product.clickElement(product.getPayPall());
     }
@@ -104,7 +103,7 @@ public class ProductPaymentFunctionality {
 
     @And("^Select the \"([^\"]*)\"$")
     public void selectThe(Boolean term) {
-       wait.until(ExpectedConditions.elementToBeClickable(checkOut.getTermsAndConditions()));
+        wait.until(ExpectedConditions.elementToBeClickable(checkOut.getTermsAndConditions()));
         if (term) checkOut.clickElement(checkOut.getTermsAndConditions());
     }
 
