@@ -121,8 +121,8 @@ public class Parent {
                 break;
         }
         Home hm = new Home();
-        hm.waitUntilVisible(hm.getHome_cookise_accept());
-        hm.clickElement(hm.getHome_cookise_accept());
+        hm.waitUntilVisible(hm.getHomeCookiseAccept());
+        hm.clickElement(hm.getHomeCookiseAccept());
     }
 
     public void switchToNewTab() {
@@ -135,7 +135,7 @@ public class Parent {
         }
     }
 
-    public void options_actions(WebElement element, WebDriver driver) {
+    public void optionsActions(WebElement element, WebDriver driver) {
         actions.moveToElement(element).sendKeys(Keys.ENTER).build().perform();
     }
 }

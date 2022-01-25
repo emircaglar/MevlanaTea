@@ -9,10 +9,10 @@ import utils.Drivers;
 
 public class BlogFunctionality {
     private Blog b;
-    private String random_href;
-    private int random_integer_value;
-    private String like_number;
-    private String search_value;
+    private String randomHref;
+    private int randomIntegerValue;
+    private String likeNumber;
+    private String searchValue;
     private WebDriverWait wait;
 
     public BlogFunctionality(Blog b) {
@@ -22,33 +22,33 @@ public class BlogFunctionality {
 
     @Then("^The user should be able to see the article$")
     public void theUserShouldBeAbleToSeeTheArticle() {
-        b.assertUrl(random_href);
+        b.assertUrl(randomHref);
     }
 
     @And("^Click on one of the articles randomly$")
     public void clickOnOneOfTheArticlesRandomly() {
-        random_integer_value = b.randomIndexForLists(b.getArticles_href());
-        random_href = b.getArticles_href().get(random_integer_value).getAttribute("href");
-        b.clickElement(b.getArticles_href().get(random_integer_value));
+        randomIntegerValue = b.randomIndexForLists(b.getArticlesHref());
+        randomHref = b.getArticlesHref().get(randomIntegerValue).getAttribute("href");
+        b.clickElement(b.getArticlesHref().get(randomIntegerValue));
     }
 
     @And("^Hover over one of the images randomly$")
     public void hoverOverOneOfTheImagesRandomly() {
-        random_integer_value = b.randomIndexForLists(b.getImage());
-        b.hoverOverRandomlyOnAnElement(b.getImage().get(random_integer_value));
+        randomIntegerValue = b.randomIndexForLists(b.getImage());
+        b.hoverOverRandomlyOnAnElement(b.getImage().get(randomIntegerValue));
     }
 
     @And("^Click on the link button$")
     public void clickOnTheLinkButton() {
-        random_href = b.getIconLink().get(random_integer_value).getText();
-        b.clickElement(b.getIconLink().get(random_integer_value));
+        randomHref = b.getIconLink().get(randomIntegerValue).getText();
+        b.clickElement(b.getIconLink().get(randomIntegerValue));
     }
 
     @And("^Click on one of the Mehr erfahren buttons randomly$")
     public void clickOnOneOfTheMehrErfahrenButtonsRandomly() {
-        random_integer_value = b.randomIndexForLists(b.getArticles_href());
-        random_href = b.getReadMore_2().get(random_integer_value).getAttribute("href");
-        b.clickElement(b.getReadMore_2().get(random_integer_value));
+        randomIntegerValue = b.randomIndexForLists(b.getArticlesHref());
+        randomHref = b.getReadMore2().get(randomIntegerValue).getAttribute("href");
+        b.clickElement(b.getReadMore2().get(randomIntegerValue));
     }
 
     @And("^Click on the Next Page button$")
@@ -63,29 +63,29 @@ public class BlogFunctionality {
 
     @And("^Click on the share on Facebook button$")
     public void clickOnTheShareOnFacebookButton() {
-        b.clickElement(b.getShare_facebook());
+        b.clickElement(b.getShareFacebook());
     }
 
     @And("^Click on the share on Twitter button$")
     public void clickOnTheShareOnTwitterButton() {
-        b.clickElement(b.getIcon_twitter());
+        b.clickElement(b.getIconTwitter());
     }
 
     @And("^Click on the share on Pinterest button$")
     public void clickOnTheShareOnPinterestButton() {
-        b.clickElement(b.getShare_pinteres());
+        b.clickElement(b.getSharePinteres());
     }
 
     @And("^Click on the share on Linked In button$")
     public void clickOnTheShareOnLinkedInButton() {
-        b.clickElement(b.getIcon_linkedin());
+        b.clickElement(b.getIconLinkedin());
     }
 
     @Then("^User should be able to see related articles$")
     public void userShouldBeAbleToSeeRelatedArticles() {
-        for (WebElement e : b.getSearch_artikels()
+        for (WebElement e : b.getSearchArtikels()
         ) {
-            if (e.getText().contains(search_value)) {
+            if (e.getText().contains(searchValue)) {
                 break;
             }
         }
@@ -94,23 +94,23 @@ public class BlogFunctionality {
     @And("^Send Tee to the Search input$")
     public void sendTeeToTheSearchInput() {
         if (Drivers.threadLanguage.get().equals("DE")) {
-            search_value = "Tee";
-            b.sendKeys(b.getSearch_blog_page(), search_value);
-            b.options_actions(b.getSearch_blog_page(), Drivers.getDriver());
+            searchValue = "Tee";
+            b.sendKeys(b.getSearchBlogPage(), searchValue);
+            b.optionsActions(b.getSearchBlogPage(), Drivers.getDriver());
         } else if (Drivers.threadLanguage.get().equals("EN")) {
-            search_value = "Tea";
-            b.sendKeys(b.getSearch_blog_page(), search_value);
-            b.options_actions(b.getSearch_blog_page(), Drivers.getDriver());
+            searchValue = "Tea";
+            b.sendKeys(b.getSearchBlogPage(), searchValue);
+            b.optionsActions(b.getSearchBlogPage(), Drivers.getDriver());
         } else {
-            search_value = "Cay";
-            b.sendKeys(b.getSearch_blog_page(), search_value);
-            b.options_actions(b.getSearch_blog_page(), Drivers.getDriver());
+            searchValue = "Cay";
+            b.sendKeys(b.getSearchBlogPage(), searchValue);
+            b.optionsActions(b.getSearchBlogPage(), Drivers.getDriver());
         }
     }
 
     @And("^Click on the Zoom button$")
     public void clickOnTheZoomButton() {
-        b.clickElement(b.getIconSearch().get(random_integer_value));
+        b.clickElement(b.getIconSearch().get(randomIntegerValue));
     }
 
     @Then("^The user should be able to see the same picture$")
@@ -120,9 +120,9 @@ public class BlogFunctionality {
 
     @And("^Click on one of the Like buttons randomly$")
     public void clickOnOneOfTheLikeButtonsRandomly() {
-        random_integer_value = b.randomIndexForLists(b.getIconHeart());
-        like_number = b.getIconHeart_actual_value().get(random_integer_value).getText();
-        b.javaScriptClick(b.getIconHeart_actual_value().get(random_integer_value));
+        randomIntegerValue = b.randomIndexForLists(b.getIconHeart());
+        likeNumber = b.getIconHeartActualValue().get(randomIntegerValue).getText();
+        b.javaScriptClick(b.getIconHeartActualValue().get(randomIntegerValue));
     }
 
     @Then("^The number of likes should be changed$")
@@ -131,35 +131,35 @@ public class BlogFunctionality {
             b.hoverOverRandomlyOnAnElement(b.getImage().get(i));
         }//I had to wait, that is why I have written the code
 
-        Assert.assertNotEquals(b.getIconHeart_actual_value().get(random_integer_value).getText(), like_number);
+        Assert.assertNotEquals(b.getIconHeartActualValue().get(randomIntegerValue).getText(), likeNumber);
     }
 
     @And("^Click on one of the Like buttons in the acticel page$")
     public void clickOnOneOfTheLikeButtonsInTheActicelPage() {
-        like_number = b.getIconHeart_actual_value_inside().getText();
-        b.javaScriptClick(b.getIconHeart_actual_value_inside());
+        likeNumber = b.getIconHeartActualValueInside().getText();
+        b.javaScriptClick(b.getIconHeartActualValueInside());
     }
 
     @Then("^The number of likes should be changed in the artikel page$")
     public void theNumberOfLikesShouldBeChangedInTheArtikelPage() {
-        wait.until(ExpectedConditions.not(ExpectedConditions.textToBe((By.xpath("//span[@class='label']")), b.getIconHeart_actual_value_inside().getText())));
-        Assert.assertNotEquals(b.getIconHeart_actual_value_inside().getText(), like_number);
+        wait.until(ExpectedConditions.not(ExpectedConditions.textToBe((By.xpath("//span[@class='label']")), b.getIconHeartActualValueInside().getText())));
+        Assert.assertNotEquals(b.getIconHeartActualValueInside().getText(), likeNumber);
     }
 
     @And("^Click on the share on \"([^\"]*)\" button$")
     public void clickOnTheShareOnButton(String socialMedia) {
         switch (socialMedia) {
             case "Facebook":
-                b.clickElement(b.getShare_facebook());
+                b.clickElement(b.getShareFacebook());
                 break;
             case "Twitter":
-                b.clickElement(b.getIcon_twitter());
+                b.clickElement(b.getIconTwitter());
                 break;
             case "Linked":
-                b.clickElement(b.getIcon_linkedin());
+                b.clickElement(b.getIconLinkedin());
                 break;
             case "Pinterest":
-                b.clickElement(b.getShare_pinteres());
+                b.clickElement(b.getSharePinteres());
                 break;
         }
     }
