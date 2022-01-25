@@ -76,7 +76,6 @@ public class ProductFunctionality {
     public void theUserShouldBeAbleToUpdateTheCart() {
         wait.until(ExpectedConditions.visibilityOf(product.getSuccessMsg()));
         if (!product.getQuantityOfProduct().getText().replaceAll("[^0-9]", "").equals("1")) {
-            System.out.println(product.getSuccessMsg().getText());
             cart.assertMessage(product.getSuccessMsg(), "Warenkorb aktualisiert.");
         }
     }
