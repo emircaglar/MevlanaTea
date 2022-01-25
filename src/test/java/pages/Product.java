@@ -23,7 +23,7 @@ public class Product extends Parent {
     @FindBy(xpath = "//p[@class=\"stock in-stock\"]")
     private WebElement stockNumber;
 
-    @FindBy(css = "em[class='woocommerce-review__awaiting-approval']")
+    @FindBy(className = "alert_wrapper")
     private WebElement successMsg;
 
     @FindBy(css = "div[class='description']>p")

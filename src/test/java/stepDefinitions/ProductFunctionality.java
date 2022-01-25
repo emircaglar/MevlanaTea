@@ -59,8 +59,8 @@ public class ProductFunctionality {
 
     @Then("^The correct number of the product should have been added to the cart$")
     public void theCorrectNumberOfTheProductShouldHaveBeenAddedToTheCart() {
-        String numberOfSelect = product.getSuccessMsg().getText().replaceAll("[^0-9]", "");
-        Assert.assertTrue(numberOfSelect.contains(val));
+        Assert.assertEquals(product.getQuantityOfProduct().getAttribute("value"),val);
+        product.assertMessage(product.getSuccessMsg(),"Warenkorb hinzugefügt");
     }
 
     @When("^Click on the In den Warenkorb aktualisieren button$")
@@ -74,7 +74,7 @@ public class ProductFunctionality {
 
     @Then("^The user should be able to update the cart$")
     public void theUserShouldBeAbleToUpdateTheCart() {
-        wait.until(ExpectedConditions.visibilityOf(product.getSuccessMsg()));
+        wait.until(ExpectedConditions.invisibilityOf(product.getSuccessMsg()));
         if (!product.getQuantityOfProduct().getText().replaceAll("[^0-9]", "").equals("1")) {
             cart.assertMessage(product.getSuccessMsg(), "Warenkorb aktualisiert.");
         }
