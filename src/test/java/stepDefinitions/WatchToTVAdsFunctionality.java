@@ -22,7 +22,7 @@ public class WatchToTVAdsFunctionality {
             Drivers.getDriver().switchTo().frame(i);
             String beforePlayback = uberUns.getPlaybackTime().getAttribute("aria-valuenow");
             uberUns.clickElement(uberUns.getPlayerButton());
-            wait.until(ExpectedConditions.attributeContains(uberUns.getPlaybackTime(), "aria-valuenow", "5"));
+            wait.until(ExpectedConditions.attributeContains(uberUns.getPlaybackTime(), "aria-valuenow", "2"));
             String afterPlayback = uberUns.getPlaybackTime().getAttribute("aria-valuenow");
             uberUns.clickElement(uberUns.getPlayerButton());
 

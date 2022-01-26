@@ -1,4 +1,4 @@
-Feature:In Blog page
+Feature: Blog page
 
   Scenario: In Blog page read a artikel
     When Click on the Blog button

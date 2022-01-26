@@ -24,13 +24,13 @@ public class MenuFunctionality {
         hm.clickElement(hm.getHome_page_Product());
     }
 
-    @Then("^User should able to see the Produkt Page$")
-    public void user_should_able_to_see_the_Produkt_Page() {
+    @Then("^The user should be able to see the Produkte Page$")
+    public void the_user_should_able_to_see_the_Produkte_Page() {
         if (Drivers.threadLanguage.get().equals("DE")) {
             hm.assertUrl("produkte");
         } else {
             hm.assertUrl("shop");
-            wait.until(ExpectedConditions.visibilityOf(hm.getHome_page_Product()));
+            hm.waitUntilVisible(hm.getHome_page_Product());
             hm.javaScriptClick(hm.getHome_cookise_accept());
         }
     }
@@ -122,6 +122,6 @@ public class MenuFunctionality {
             Drivers.getDriver().manage().window().setSize(new Dimension(360, 640));
         }
         hm.javaScriptClick(hm.getHamburger());
-        wait.until(ExpectedConditions.visibilityOf(hm.getHome_page_Product()));
+        hm.waitUntilVisible(hm.getHome_page_Product());
     }
 }

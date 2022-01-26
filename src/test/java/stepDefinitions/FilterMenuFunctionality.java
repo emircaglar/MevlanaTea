@@ -4,6 +4,8 @@ import cucumber.api.DataTable;
 import cucumber.api.java.en.*;
 import org.openqa.selenium.support.ui.Select;
 import pages.Products;
+import utils.Drivers;
+
 import java.util.List;
 
 public class FilterMenuFunctionality {
@@ -16,7 +18,9 @@ public class FilterMenuFunctionality {
 
     @Then("^Click to the Teezubehör Button$")
     public void clickToTheTeezubehörButton() {
+        if (Drivers.threadLanguage.get().equals("DE")){
         products.getTeezubehörButton().click();
+        }
     }
 
     @And("^Click on the filter button$")
