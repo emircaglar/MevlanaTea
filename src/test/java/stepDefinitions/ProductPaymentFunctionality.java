@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import cucumber.api.java.en.*;
@@ -21,7 +22,7 @@ public class ProductPaymentFunctionality {
 
     @When("^Click on the PayPal button$")
     public void clickOnThePayPalButton() {
-        wait.until(ExpectedConditions.visibilityOf(product.getiFrame()));
+        product.waitUntilVisible(product.getiFrame());
         Drivers.getDriver().switchTo().frame(product.getiFrame());
         product.clickElement(product.getPayPall());
     }
@@ -29,7 +30,7 @@ public class ProductPaymentFunctionality {
     @Then("^The user should be able to see PayPal login page$")
     public void theUserShouldBeAbleToSeePayPalLoginPage() {
         product.switchToNewTab();
-        wait.until(ExpectedConditions.visibilityOf(product.getPayPalButton()));
+        checkOut.waitUntilVisible(product.getPayPalButton());
         product.assertUrl("paypal.com");
     }
 
@@ -43,11 +44,15 @@ public class ProductPaymentFunctionality {
         checkOut.sendKeys(checkOut.getFirstName(), name);
     }
 
-    @When("^Select \"([^\"]*)\" as payment \"([^\"]*)\"$")
+    @When("^Select ([^\"]*) as payment \"([^\"]*)\"$")
     public void selectAsPayment(Boolean payment, String option) {
         if (payment) {
-            if (!checkOut.getCreditCardRadio().isSelected()) checkOut.clickElement(checkOut.getCreditCardRadio());
+            checkOut.waitUntilVisible(checkOut.getiFrame());
+            if (!checkOut.getCreditCardRadio().isSelected()) {
+                checkOut.clickElement(checkOut.getCreditCardRadio());
+            }
             Drivers.getDriver().switchTo().frame(0);
+            wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(By.cssSelector("[class= 'nameRow']"),1));
             switch (option) {
                 case "Paypal":
                     if (!checkOut.getPaymentMethods().get(0).isSelected())
@@ -92,31 +97,27 @@ public class ProductPaymentFunctionality {
     @And("^Fill the email \"([^\"]*)\"$")
     public void fillTheEmail(String email) {
         checkOut.sendKeys(checkOut.getEmail(), email);
+        checkOut.waitUntilVisible(checkOut.getCreditCardRadio());
     }
 
-    @When("^Select \"([^\"]*)\" as payment option$")
+    @When("^Select ([^\"]*) as payment option$")
     public void selectAsPaymentOption(Boolean msj) {
-        if (msj) {
-            checkOut.clickElement(checkOut.getBankTransferRadio());
-        }
+        if (msj) checkOut.javaScriptClick(checkOut.getBankTransferRadio());
     }
 
-    @And("^Select the \"([^\"]*)\"$")
+    @And("^Select the ([^\"]*)$")
     public void selectThe(Boolean term) {
-        wait.until(ExpectedConditions.elementToBeClickable(checkOut.getTermsAndConditions()));
-        if (term) checkOut.clickElement(checkOut.getTermsAndConditions());
+        if (term) checkOut.javaScriptClick(checkOut.getTermsAndConditions());
     }
 
     @Then("^The user shoul be able to see the appropriate \"([^\"]*)\"$")
     public void theUserShoulBeAbleToSeeTheAppropriate(String message) {
-        if (!(message.equals(""))) {
-            checkOut.assertMessage(checkOut.getErrorMessage(), message);
-        }
+        if (!(message.equals(""))) checkOut.assertMessage(checkOut.getErrorMessage(), message);
     }
 
-    @When("^Click on the \"([^\"]*)\"$")
+    @When("^Click on the Kostenpflichtig Bestellen ([^\"]*)$")
     public void clickOnThe(Boolean bessellen) {
-        if (bessellen) checkOut.clickElement(checkOut.getPlaceOrder());
+        if (bessellen) checkOut.javaScriptClick(checkOut.getPlaceOrder());
     }
 
     @Then("^Click on the Gutschein message$")

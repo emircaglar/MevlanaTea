@@ -2,7 +2,7 @@ Feature: Menu Functionality
 
   Scenario: Menu in desktop mode
     Given Click on the Produkte button
-    Then User should able to see the Produkt Page
+    Then The user should be able to see the Produkte Page
     And Click on the Home button
     Then The user should able to see the Home Page
     And Click on the Uber Uns button
@@ -17,7 +17,7 @@ Feature: Menu Functionality
   Scenario: Menu in mobil mode
     Given Click on the hamburger menu icon
     And Click on the Produkte button
-    Then User should able to see the Produkt Page
+    Then The user should be able to see the Produkte Page
     And Click on the hamburger menu icon
     And Click on the Home button
     Then The user should able to see the Home Page

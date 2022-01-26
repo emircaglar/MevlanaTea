@@ -7,7 +7,7 @@
         <parameter name="language" value="TR"></parameter>
 
         <classes>
-            <class name="runners.FilterMenuFunctionalityEnAndTrRunner"></class>
+            <class name="runners.FilterMenuFunctionalityRunner"></class>
         </classes>
     </test>
 
@@ -16,7 +16,7 @@
         <parameter name="language" value="EN"></parameter>
 
         <classes>
-            <class name="runners.FilterMenuFunctionalityEnAndTrRunner"></class>
+            <class name="runners.FilterMenuFunctionalityRunner"></class>
         </classes>
     </test>
 
@@ -24,7 +24,7 @@
         <parameter name="browser" value="chrome"></parameter>
         <parameter name="language" value="DE"></parameter>
         <classes>
-            <class name="runners.FilterMenuFunctionalityGermanyRunner"></class>
+            <class name="runners.FilterMenuFunctionalityRunner"></class>
         </classes>
     </test>
 

@@ -63,4 +63,4 @@ Feature:Product Functionality
     And Hover over one of the products' image randomly which is in the stocks
     And Click on the Cart icon
     When Click on the Weiter einkaufen button
-    Then The user should be able to see the Produkte page
+    Then The user should be able to see the Produkte Page

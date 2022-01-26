@@ -71,6 +71,6 @@ public class ProductReviewFunctionality {
 
     @Then("^User should be able to see the \"([^\"]*)\" message$")
     public void user_should_be_able_to_see_the_message(String message) {
-        product.assertMessage(product.getSuccessMsg(), message);
+        product.assertMessage(product.getReviewSuccessMessage(), message);
     }
 }

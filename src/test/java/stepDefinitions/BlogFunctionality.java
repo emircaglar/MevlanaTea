@@ -127,10 +127,7 @@ public class BlogFunctionality {
 
     @Then("^The number of likes should be changed$")
     public void theNumberOfLikesShouldBeChanged() {
-        for (int i = 0; i < b.getImage().size(); i++) {
-            b.hoverOverRandomlyOnAnElement(b.getImage().get(i));
-        }//I had to wait, that is why I have written the code
-
+        wait.until(ExpectedConditions.not(ExpectedConditions.textToBePresentInElement(b.getIconHeart_actual_value().get(random_integer_value), like_number)));
         Assert.assertNotEquals(b.getIconHeartActualValue().get(randomIntegerValue).getText(), likeNumber);
     }
 
