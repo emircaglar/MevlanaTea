@@ -16,7 +16,7 @@ public class ProductSubmenuFunctionality {
     @Given("^Hover over the Product Button$")
     public void hover_over_the_Product_Button() {
         if (Drivers.threadLanguage.get().equals("DE")) {
-            hm.hoverOverRandomlyOnAnElement(hm.getHome_page_Product());
+            hm.hoverOverRandomlyOnAnElement(hm.getHomePageProduct());
         }
     }
 

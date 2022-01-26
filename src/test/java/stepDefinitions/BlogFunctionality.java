@@ -127,7 +127,7 @@ public class BlogFunctionality {
 
     @Then("^The number of likes should be changed$")
     public void theNumberOfLikesShouldBeChanged() {
-        wait.until(ExpectedConditions.not(ExpectedConditions.textToBePresentInElement(b.getIconHeart_actual_value().get(random_integer_value), like_number)));
+        wait.until(ExpectedConditions.not(ExpectedConditions.textToBePresentInElement(b.getIconHeartActualValue().get(randomIntegerValue), likeNumber)));
         Assert.assertNotEquals(b.getIconHeartActualValue().get(randomIntegerValue).getText(), likeNumber);
     }
 
