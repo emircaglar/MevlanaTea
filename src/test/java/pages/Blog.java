@@ -39,43 +39,43 @@ public class Blog extends Parent {
     private WebElement imageZoom;
 
     @FindBy(xpath = "//div//h2[@class='entry-title']//a")
-    private List<WebElement> articles_href;
+    private List<WebElement> articlesHref;
 
     @FindBy(className = "post-more")
-    private List<WebElement> readMore_2;
+    private List<WebElement> readMore2;
 
     @FindBy(css = "div[class='icons']")
-    private WebElement share_facebook;
+    private WebElement shareFacebook;
 
     @FindBy(className = "icon-twitter")
-    private WebElement icon_twitter;
+    private WebElement iconTwitter;
 
     @FindBy(className = "icon-linkedin")
-    private WebElement icon_linkedin;
+    private WebElement iconLinkedin;
 
     @FindBy(css = "a[class='pinterest']")
-    private WebElement share_pinteres;
+    private WebElement sharePinteres;
 
     @FindBy(xpath = "(//form[@id='searchform']//input[@name='s'])[2]")
-    private WebElement search_blog_page;
+    private WebElement searchBlogPage;
 
     @FindBy(css = "div[class='post-title']")
-    private List<WebElement> search_artikels;
+    private List<WebElement> searchArticle;
 
     @FindBy(xpath = "//span[@class='label']")
-    private List<WebElement> iconHeart_actual_value;
+    private List<WebElement> iconHeartActualValue;
 
     @FindBy(xpath = "//span[@class='label']")
-    private WebElement iconHeart_actual_value_inside;
+    private WebElement iconHeartActualValueInside;
 
     @FindBy(xpath = "//span//i[@class='icon-heart-fa']")
-    private WebElement iconHeart_inside;
+    private WebElement iconHeartInside;
 
     @FindBy(className = "entry-title")
-    private WebElement name_selected_artikel;
+    private WebElement nameSelectedArtikel;
 
-    public WebElement getName_selected_artikel() {
-        return name_selected_artikel;
+    public WebElement getNameSelectedArtikel() {
+        return nameSelectedArtikel;
     }
 
     public List<WebElement> getArticles() {
@@ -110,25 +110,25 @@ public class Blog extends Parent {
         return imageZoom;
     }
 
-    public List<WebElement> getArticles_href() { return articles_href; }
+    public List<WebElement> getArticlesHref() { return articlesHref; }
 
-    public List<WebElement> getReadMore_2() { return readMore_2; }
+    public List<WebElement> getReadMore2() { return readMore2; }
 
-    public WebElement getShare_facebook() { return share_facebook; }
+    public WebElement getShareFacebook() { return shareFacebook; }
 
-    public WebElement getIcon_twitter() { return icon_twitter; }
+    public WebElement getIconTwitter() { return iconTwitter; }
 
-    public WebElement getIcon_linkedin() { return icon_linkedin; }
+    public WebElement getIconLinkedin() { return iconLinkedin; }
 
-    public WebElement getShare_pinteres() { return share_pinteres; }
+    public WebElement getSharePinteres() { return sharePinteres; }
 
-    public WebElement getSearch_blog_page() { return search_blog_page; }
+    public WebElement getSearchBlogPage() { return searchBlogPage; }
 
-    public List<WebElement> getSearch_artikels() { return search_artikels; }
+    public List<WebElement> getSearchArtikels() { return searchArticle; }
 
-    public List<WebElement> getIconHeart_actual_value() { return iconHeart_actual_value; }
+    public List<WebElement> getIconHeartActualValue() { return iconHeartActualValue; }
 
-    public WebElement getIconHeart_actual_value_inside() { return iconHeart_actual_value_inside; }
+    public WebElement getIconHeartActualValueInside() { return iconHeartActualValueInside; }
 
-    public WebElement getIconHeart_inside() { return iconHeart_inside; }
+    public WebElement getIconHeartInside() { return iconHeartInside; }
 }
