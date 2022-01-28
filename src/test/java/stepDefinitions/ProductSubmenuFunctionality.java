@@ -3,6 +3,7 @@ package stepDefinitions;
 import cucumber.api.java.en.*;
 import org.testng.Assert;
 import pages.Home;
+import utils.Drivers;
 
 public class ProductSubmenuFunctionality {
 
@@ -14,7 +15,9 @@ public class ProductSubmenuFunctionality {
 
     @Given("^Hover over the Product Button$")
     public void hover_over_the_Product_Button() {
-        hm.hoverOverRandomlyOnAnElement(hm.getHomePageProduct());
+        if (Drivers.threadLanguage.get().equals("DE")) {
+            hm.hoverOverRandomlyOnAnElement(hm.getHomePageProduct());
+        }
     }
 
     @Then("^User should be able to see the sub menus of the Product page$")

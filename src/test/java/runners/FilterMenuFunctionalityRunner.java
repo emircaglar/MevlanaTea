@@ -6,11 +6,10 @@ import org.testng.annotations.*;
 import utils.Drivers;
 
 @CucumberOptions(
-        tags = {"@TurkeyAndEnglishShop"},
         features = {"src/test/resources/featureFiles/FilterMenuFunctionality.feature"},
         glue = {"stepDefinitions", "utils"}
 )
-public class FilterMenuFunctionalityEnAndTrRunner extends AbstractTestNGCucumberTests {
+public class FilterMenuFunctionalityRunner extends AbstractTestNGCucumberTests {
 
     @BeforeClass
     @Parameters({"browser", "language"})

@@ -93,6 +93,9 @@ public class Product extends Parent {
     @FindBy(xpath = "//div[.='Weiter']")
     private WebElement payPalButton;
 
+    @FindBy(css = "p[class='meta']>em")
+    private WebElement reviewSuccessMessage;
+
     public WebElement getiFrame() {
         return iFrame;
     }
@@ -194,5 +197,9 @@ public class Product extends Parent {
 
     public WebElement getDescriptionMessage() {
         return descriptionMessage;
+    }
+
+    public WebElement getReviewSuccessMessage() {
+        return reviewSuccessMessage;
     }
 }

@@ -1,4 +1,4 @@
-Feature:In Blog page
+Feature: Blog page
 
  Background:
    When Click on the Blog button
