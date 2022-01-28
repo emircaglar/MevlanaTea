@@ -31,13 +31,15 @@ public class RegressionRunner extends AbstractTestNGCucumberTests {
     @Parameters({"browser", "language"})
     public void initiate(String browser, String language) {
         startTime = LocalTime.now();
+        startDate = LocalDate.now();
         Drivers.threadBrowserName.set(browser);
         Drivers.threadLanguage.set(language);
     }
 
     @AfterClass
-    public void terminate(){
+    public void terminate() {
         endTime = LocalTime.now();
+        endDate = LocalDate.now();
         duration = Duration.between(startTime, endTime);
         Reporter.loadXMLConfig("src/test/java/XMLFiles/ExtendReportSet.xml");
 
@@ -47,6 +49,6 @@ public class RegressionRunner extends AbstractTestNGCucumberTests {
         Reporter.setSystemInfo("Department", "QA");
 
         Reporter.setTestRunnerOutput("Test Execution Cucumber Report");
-        ExcelUtils.logTestToExcel(this.getClass().getSimpleName(), startDate, endDate, startTime, endTime,duration);
+        ExcelUtils.logTestToExcel(this.getClass().getSimpleName(), startDate, endDate, startTime, endTime, duration);
     }
 }
