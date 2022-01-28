@@ -17,7 +17,7 @@ public class Blog extends Parent {
     @FindBy(xpath ="//div//h2[@class='entry-title']")
     private List<WebElement> articles;
 
-    @FindBy(xpath= "//a//i[@class='icon-search']")
+    @FindBy(css= "a[class='zoom']")
     private List<WebElement> iconSearch;
 
     @FindBy(xpath= "//a//i[@class='icon-link']")

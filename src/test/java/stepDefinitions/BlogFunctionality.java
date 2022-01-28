@@ -110,12 +110,13 @@ public class BlogFunctionality {
 
     @And("^Click on the Zoom button$")
     public void clickOnTheZoomButton() {
+        randomHref=b.getIconSearch().get(randomIntegerValue).getAttribute("href");
         b.clickElement(b.getIconSearch().get(randomIntegerValue));
     }
 
     @Then("^The user should be able to see the same picture$")
     public void theUserShouldBeAbleToSeeTheSamePicture() {
-        Assert.assertTrue(b.getImageZoom().getAttribute("src").trim().contains(".jpg"));
+        Assert.assertEquals(randomHref, b.getImageZoom().getAttribute("src"));
     }
 
     @And("^Click on one of the Like buttons randomly$")
@@ -127,10 +128,7 @@ public class BlogFunctionality {
 
     @Then("^The number of likes should be changed$")
     public void theNumberOfLikesShouldBeChanged() {
-        for (int i = 0; i < b.getImage().size(); i++) {
-            b.hoverOverRandomlyOnAnElement(b.getImage().get(i));
-        }//I had to wait, that is why I have written the code
-
+        wait.until(ExpectedConditions.not(ExpectedConditions.textToBePresentInElement(b.getIconHeartActualValue().get(randomIntegerValue), likeNumber)));
         Assert.assertNotEquals(b.getIconHeartActualValue().get(randomIntegerValue).getText(), likeNumber);
     }
 
