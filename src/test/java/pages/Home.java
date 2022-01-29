@@ -22,7 +22,7 @@ public class Home extends Parent {
     @FindBy(className = "mctb-button")
     private WebElement HomeEmailSubmit;
 
-    @FindBy(css = "div[class='cf1YU1 cfNq4w']>button")
+    @FindBy(css = "span[class='cs_3']")
     private WebElement HomeCookiseAccept;
 
     @FindBy(css = "ul[id='menu-ana-menu']>:nth-child(1)")

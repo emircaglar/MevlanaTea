@@ -35,7 +35,8 @@ public class ProductFunctionality {
 
     @When("^Click on the In den Warenkorb button$")
     public void clickOnTheInDenWarenkorbButton() {
-        product.clickElement(product.getAddToCart());
+        if (number != 1)
+            product.clickElement(product.getAddToCart());
     }
 
     @Then("^The product should have been added to the cart$")
@@ -59,8 +60,8 @@ public class ProductFunctionality {
 
     @Then("^The correct number of the product should have been added to the cart$")
     public void theCorrectNumberOfTheProductShouldHaveBeenAddedToTheCart() {
-        Assert.assertEquals(product.getQuantityOfProduct().getAttribute("value"),val);
-        product.assertMessage(product.getSuccessMsg(),"Warenkorb hinzugefügt");
+        Assert.assertEquals(product.getQuantityOfProduct().getAttribute("value"), val);
+        product.assertMessage(product.getSuccessMsg(), "Warenkorb hinzugefügt");
     }
 
     @When("^Click on the In den Warenkorb aktualisieren button$")
@@ -69,12 +70,12 @@ public class ProductFunctionality {
         int index = 1 + (int) (Math.random() * Integer.parseInt(numberOfStock));
         product.sendKeys(product.getQuantityOfProduct(), String.valueOf(index));
         cart.clickElement(cart.getIconCancelBtn());
+        wait.until(ExpectedConditions.invisibilityOf(product.getSuccessMsg()));
         cart.clickElement(cart.getUpdateShoppingCartBtn());
     }
 
     @Then("^The user should be able to update the cart$")
     public void theUserShouldBeAbleToUpdateTheCart() {
-        wait.until(ExpectedConditions.invisibilityOf(product.getSuccessMsg()));
         if (!product.getQuantityOfProduct().getText().replaceAll("[^0-9]", "").equals("1")) {
             cart.assertMessage(product.getSuccessMsg(), "Warenkorb aktualisiert.");
         }
