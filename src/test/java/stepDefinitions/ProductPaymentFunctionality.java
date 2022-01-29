@@ -22,8 +22,7 @@ public class ProductPaymentFunctionality {
 
     @When("^Click on the PayPal button$")
     public void clickOnThePayPalButton() {
-        product.waitUntilVisible(product.getiFrame());
-        Drivers.getDriver().switchTo().frame(product.getiFrame());
+        wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(product.getiFrame()));
         product.clickElement(product.getPayPall());
     }
 
@@ -47,12 +46,7 @@ public class ProductPaymentFunctionality {
     @When("^Select ([^\"]*) as payment \"([^\"]*)\"$")
     public void selectAsPayment(Boolean payment, String option) {
         if (payment) {
-            checkOut.waitUntilVisible(checkOut.getiFrame());
-            if (!checkOut.getCreditCardRadio().isSelected()) {
-                checkOut.clickElement(checkOut.getCreditCardRadio());
-            }
-            Drivers.getDriver().switchTo().frame(0);
-            wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(By.cssSelector("[class= 'nameRow']"),1));
+            wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(checkOut.getiFrame()));
             switch (option) {
                 case "Paypal":
                     if (!checkOut.getPaymentMethods().get(0).isSelected())
